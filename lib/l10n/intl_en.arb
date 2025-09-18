@@ -1,5 +1,13 @@
 {
     "@@locale": "en",
     "airQuality":"Air Quality",
-    "@airQuality": {}
+    "@airQuality": {},
+    "good":"Good",
+    "@good":{},
+    "moderate":"Moderate",
+    "@moderate":{},
+    "unhealthy":"Unhealthy",
+    "@unhealthy":{},
+     "keyIndicator":"Key Indicator",
+    "@keyIndicator":{}
 }

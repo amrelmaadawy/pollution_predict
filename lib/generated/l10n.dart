@@ -58,6 +58,31 @@ class S {
   String get airQuality {
     return Intl.message('Air Quality', name: 'airQuality', desc: '', args: []);
   }
+
+  /// `Good`
+  String get good {
+    return Intl.message('Good', name: 'good', desc: '', args: []);
+  }
+
+  /// `Moderate`
+  String get moderate {
+    return Intl.message('Moderate', name: 'moderate', desc: '', args: []);
+  }
+
+  /// `Unhealthy`
+  String get unhealthy {
+    return Intl.message('Unhealthy', name: 'unhealthy', desc: '', args: []);
+  }
+
+  /// `Key Indicator`
+  String get keyIndicator {
+    return Intl.message(
+      'Key Indicator',
+      name: 'keyIndicator',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
