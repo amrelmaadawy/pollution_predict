@@ -24,7 +24,7 @@ class CutsomPollutionAmoutContainer extends StatelessWidget {
       height: 120,
       width: MediaQuery.of(context).size.width * 0.46,
       decoration: BoxDecoration(
-        border: Border.all(color: kLightBorderColor!),
+        border: Border.all(color: kLightBorderColor),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -35,9 +35,9 @@ class CutsomPollutionAmoutContainer extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(icon, color: kLightBorderColor),
+                Icon(icon, color: kSubTextColor),
                 SizedBox(width: 5),
-                Text(pollutionType, style: TextStyle(color: kLightBorderColor)),
+                Text(pollutionType, style: TextStyle(color: kSubTextColor)),
               ],
             ),
             Text(

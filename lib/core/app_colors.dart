@@ -6,5 +6,6 @@ const kYellowTextColor = Color(0XFFFF9800);
 const kRedTextColor = Color(0XFFF44336);
 const kLightHighlightYellowColor = Color(0X33FFD600);
 const kLightHighlightRedColor = Color(0X33F44336);
-var kLightBorderColor = Colors.grey[700];
+const kLightBorderColor = Color(0xFFB0BEC5);
+const kSubTextColor = Color(0xFF455A64);
 const kLightHighlightGreenColor = Color.fromARGB(51, 44, 245, 148);
