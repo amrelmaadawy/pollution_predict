@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pollution/core/app_colors.dart';
+import 'package:pollution/features/air_quality/ui/widgets/custom_pollution_amount_container.dart';
 import 'package:pollution/generated/l10n.dart';
 
 class AirQualityView extends StatelessWidget {
@@ -6,9 +8,71 @@ class AirQualityView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold
-    (
-      appBar: AppBar(title: Text(S.of(context).airQuality),),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          S.of(context).airQuality,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+      ),
+
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "key indicator",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                CutsomPollutionAmoutContainer(
+                  pollutionType: 'PM2.5',
+                  pollutionAmount: '15 µg/m³',
+                  icon: Icons.air,
+                  state: 'Good',
+                  textColor: kLightPrimaryColor,
+                  highlightColor: kLightHighlightGreenColor,
+                ),
+                Spacer(),
+                CutsomPollutionAmoutContainer(
+                  pollutionType: 'NO2',
+                  pollutionAmount: '20 ppb',
+                  icon: Icons.air,
+                  state: 'Moderate',
+                  textColor: kYellowTextColor,
+                  highlightColor: kLightHighlightYellowColor,
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                CutsomPollutionAmoutContainer(
+                  pollutionType: 'Ozone ',
+                  pollutionAmount: '45 ppb',
+                  icon: Icons.wb_sunny_outlined,
+                  state: 'Unhealthy',
+                  textColor: kRedTextColor,
+                  highlightColor: kLightHighlightRedColor,
+                ),
+                Spacer(),
+                CutsomPollutionAmoutContainer(
+                  pollutionType: 'SO2',
+                  pollutionAmount: '5 ppb',
+                  icon: Icons.cloud_outlined,
+                  state: 'Unhealthy',
+                  textColor: kRedTextColor,
+                  highlightColor: kLightHighlightRedColor,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
