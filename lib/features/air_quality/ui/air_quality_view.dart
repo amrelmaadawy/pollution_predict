@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/features/air_quality/ui/widgets/custom_pollution_amount_container.dart';
 import 'package:pollution/features/air_quality/ui/widgets/linear_chart.dart';
+import 'package:pollution/features/air_quality/ui/widgets/weather_conditions_containers.dart';
 import 'package:pollution/generated/l10n.dart';
 
 class AirQualityView extends StatelessWidget {
@@ -103,6 +104,32 @@ class AirQualityView extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                "Weather Conditions",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  WeatherConditionsContainers(
+                    weatherCondition: 'Temperature',
+                    weatherValue: '25°C',
+                    icon: Icons.thermostat_outlined,
+                  ),
+                  WeatherConditionsContainers(
+                    weatherCondition: 'Wind',
+                    weatherValue: '15 km/h',
+                    icon: Icons.air_outlined,
+                  ),
+                  WeatherConditionsContainers(
+                    weatherCondition: 'Humidity',
+                    weatherValue: '60%',
+                    icon: Icons.water_drop_outlined,
+                  ),
+                ],
               ),
             ],
           ),
