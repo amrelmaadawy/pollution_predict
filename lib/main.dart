@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:pollution/features/air_quality/ui/air_quality_view.dart';
+import 'package:pollution/features/air_quality/ui/nav_bar_view.dart';
 import 'package:pollution/generated/l10n.dart';
 
 void main() {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       ],
       debugShowCheckedModeBanner: false,
       supportedLocales: S.delegate.supportedLocales,
-      home: AirQualityView(),
+      home: NavBarView(),
     );
   }
 }
