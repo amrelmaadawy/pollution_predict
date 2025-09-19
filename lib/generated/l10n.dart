@@ -83,6 +83,46 @@ class S {
       args: [],
     );
   }
+
+  /// `24-hour Forecast`
+  String get hourForecast {
+    return Intl.message(
+      '24-hour Forecast',
+      name: 'hourForecast',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AQI Trend`
+  String get aqiTrend {
+    return Intl.message('AQI Trend', name: 'aqiTrend', desc: '', args: []);
+  }
+
+  /// `Weather Conditions`
+  String get WeatherConditions {
+    return Intl.message(
+      'Weather Conditions',
+      name: 'WeatherConditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Temperature`
+  String get Temperature {
+    return Intl.message('Temperature', name: 'Temperature', desc: '', args: []);
+  }
+
+  /// `Wind`
+  String get Wind {
+    return Intl.message('Wind', name: 'Wind', desc: '', args: []);
+  }
+
+  /// `Humidity`
+  String get Humidity {
+    return Intl.message('Humidity', name: 'Humidity', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

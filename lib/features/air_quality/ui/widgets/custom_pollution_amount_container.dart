@@ -22,7 +22,7 @@ class CutsomPollutionAmoutContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 120,
-      width: MediaQuery.of(context).size.width * 0.46,
+      width: MediaQuery.of(context).size.width * 0.44,
       decoration: BoxDecoration(
         border: Border.all(color: kLightBorderColor),
         borderRadius: BorderRadius.circular(10),

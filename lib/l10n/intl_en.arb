@@ -8,6 +8,18 @@
     "@moderate":{},
     "unhealthy":"Unhealthy",
     "@unhealthy":{},
-     "keyIndicator":"Key Indicator",
-    "@keyIndicator":{}
+    "keyIndicator":"Key Indicator",
+    "@keyIndicator":{},
+    "hourForecast":"24-hour Forecast",
+    "@hourForecast":{},
+    "aqiTrend":"AQI Trend",
+    "@aqiTrend":{},
+        "WeatherConditions":"Weather Conditions",
+    "@WeatherConditions":{},
+    "Temperature":"Temperature",
+    "@Temperature":{},
+    "Wind":"Wind",
+    "@Wind":{},
+    "Humidity":"Humidity",
+    "@Humidity":{}
 }

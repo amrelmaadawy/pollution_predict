@@ -20,7 +20,7 @@ class AirQualityView extends StatelessWidget {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(15.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +75,7 @@ class AirQualityView extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                '24-hour Forecast',
+                S.of(context).hourForecast,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),
@@ -90,7 +90,7 @@ class AirQualityView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "AQI Trend ",
+                        S.of(context).aqiTrend,
                         style: TextStyle(color: kSubTextColor, fontSize: 17),
                       ),
                       Text(
@@ -107,7 +107,7 @@ class AirQualityView extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                "Weather Conditions",
+                S.of(context).WeatherConditions,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),
@@ -115,17 +115,17 @@ class AirQualityView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   WeatherConditionsContainers(
-                    weatherCondition: 'Temperature',
+                    weatherCondition: S.of(context).Temperature,
                     weatherValue: '25°C',
                     icon: Icons.thermostat_outlined,
                   ),
                   WeatherConditionsContainers(
-                    weatherCondition: 'Wind',
+                    weatherCondition: S.of(context).Wind,
                     weatherValue: '15 km/h',
                     icon: Icons.air_outlined,
                   ),
                   WeatherConditionsContainers(
-                    weatherCondition: 'Humidity',
+                    weatherCondition: S.of(context).Humidity,
                     weatherValue: '60%',
                     icon: Icons.water_drop_outlined,
                   ),
