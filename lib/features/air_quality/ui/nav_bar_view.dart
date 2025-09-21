@@ -19,15 +19,13 @@ class _NavBarViewState extends State<NavBarView> {
     S.of(context).airQuality,
     "Air Quality Map",
     "Forecasts",
-    "Air Quality Alerts",
+    "Air Quality Status",
   ];
-  List<Widget> pages = 
-  [
- AirQualitiyView(),
-AirQualityMapView(),
-ForecastsView(),
-AirQualityAlertsView(),
-
+  List<Widget> pages = [
+    AirQualitiyView(),
+    AirQualityMapView(),
+    ForecastsView(),
+    AirQualityAlertsView(),
   ];
   int currentIndex = 0;
 
@@ -50,7 +48,7 @@ AirQualityAlertsView(),
         centerTitle: true,
       ),
 
-      body:pages[currentIndex] ,
+      body: pages[currentIndex],
     );
   }
 }

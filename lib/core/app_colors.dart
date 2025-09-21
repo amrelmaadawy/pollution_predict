@@ -9,3 +9,4 @@ const kLightHighlightRedColor = Color(0X33F44336);
 const kLightBorderColor = Color(0xFFB0BEC5);
 const kSubTextColor = Color(0xFF455A64);
 const kLightHighlightGreenColor = Color.fromARGB(51, 44, 245, 148);
+const kLightHighlightBackGroundGreenColor = Color(0x192CF594);
