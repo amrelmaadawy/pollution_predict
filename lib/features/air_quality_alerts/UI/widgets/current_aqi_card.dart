@@ -1,12 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/features/air_quality/ui/widgets/state_container.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class CurrentAQICard extends StatelessWidget {
-  const CurrentAQICard({
-    super.key,
-  });
+  const CurrentAQICard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +16,12 @@ class CurrentAQICard extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'Current AQI',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  S.of(context).CurrentAQI,
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
                 StateContainer(
-                  state: 'Good',
+                  state: S.of(context).good,
                   textColor: kLightPrimaryColor,
                   highlightColor: kLightHighlightGreenColor,
                 ),
@@ -45,8 +40,7 @@ class CurrentAQICard extends StatelessWidget {
                   shape: BoxShape.circle,
                   color: Colors.transparent,
                   border: Border.all(
-                    color:
-                        Colors.white, // Placeholder (هيتغير بالـ Shader)
+                    color: Colors.white, // Placeholder (هيتغير بالـ Shader)
                     width: 6,
                   ),
                 ),

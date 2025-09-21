@@ -29,5 +29,12 @@
     "Next7Days":"Next 7 Days",
     "@Next7Days":{},
     "PollutantDetails":"Pollutant Details",
-    "@PollutantDetails":{}
+    "@PollutantDetails":{},
+    "Alerts":"Alerts",
+    "@Alerts":{},
+     "ViewAll":"View All",
+    "@ViewAll":{},
+     "CurrentAQI":"Current AQI",
+    "@CurrentAQI":{}
+
 }

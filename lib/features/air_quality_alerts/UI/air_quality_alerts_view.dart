@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/features/air_quality_alerts/UI/widgets/alert_list_view.dart';
 import 'package:pollution/features/air_quality_alerts/UI/widgets/current_aqi_card.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class AirQualityAlertsView extends StatelessWidget {
   const AirQualityAlertsView({super.key});
@@ -17,7 +18,7 @@ class AirQualityAlertsView extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Alerts',
+                S.of(context).Alerts,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               Spacer(),
@@ -29,7 +30,7 @@ class AirQualityAlertsView extends StatelessWidget {
                   alignment: Alignment.centerRight,
                 ),
                 child: Text(
-                  'View All',
+              S.of(context).ViewAll,
                   style: TextStyle(
                     color: kLightPrimaryColor,
                     fontWeight: FontWeight.bold,

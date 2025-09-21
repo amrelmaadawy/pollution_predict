@@ -25,6 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "AirQualityIndexAQIForecast": MessageLookupByLibrary.simpleMessage(
       "Air Quality Index(AQI) Forecast",
     ),
+    "Alerts": MessageLookupByLibrary.simpleMessage("Alerts"),
+    "CurrentAQI": MessageLookupByLibrary.simpleMessage("Current AQI"),
     "Humidity": MessageLookupByLibrary.simpleMessage("Humidity"),
     "Next7Days": MessageLookupByLibrary.simpleMessage("Next 7 Days"),
     "PollutantDetails": MessageLookupByLibrary.simpleMessage(
@@ -32,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
     "Today": MessageLookupByLibrary.simpleMessage("Today"),
+    "ViewAll": MessageLookupByLibrary.simpleMessage("View All"),
     "WeatherConditions": MessageLookupByLibrary.simpleMessage(
       "Weather Conditions",
     ),

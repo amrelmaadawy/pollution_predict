@@ -153,6 +153,21 @@ class S {
       args: [],
     );
   }
+
+  /// `Alerts`
+  String get Alerts {
+    return Intl.message('Alerts', name: 'Alerts', desc: '', args: []);
+  }
+
+  /// `View All`
+  String get ViewAll {
+    return Intl.message('View All', name: 'ViewAll', desc: '', args: []);
+  }
+
+  /// `Current AQI`
+  String get CurrentAQI {
+    return Intl.message('Current AQI', name: 'CurrentAQI', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
