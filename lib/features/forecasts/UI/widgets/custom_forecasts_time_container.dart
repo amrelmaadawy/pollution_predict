@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
 
 class CustomForecastsTimeContianer extends StatelessWidget {
-  const CustomForecastsTimeContianer({super.key, required this.time});
+  const CustomForecastsTimeContianer({
+    super.key,
+    required this.time,
+    required this.isSelected,
+  });
   final String time;
-
+  final bool isSelected;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: kLightHighlightGreenColor,
+        color: isSelected ? kLightPrimaryColor : kLightHighlightGreenColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
