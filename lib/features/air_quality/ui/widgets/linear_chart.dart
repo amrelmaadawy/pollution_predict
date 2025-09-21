@@ -16,7 +16,6 @@ class LinearChart extends StatelessWidget {
             gridData: FlGridData(show: false),
             borderData: FlBorderData(show: false),
 
-            // ✅ تعديل الـ titlesData
             titlesData: FlTitlesData(
               bottomTitles: AxisTitles(
                 sideTitles: SideTitles(
@@ -67,9 +66,15 @@ class LinearChart extends StatelessWidget {
               LineChartBarData(
                 spots: const [
                   FlSpot(0, 1),
+                  FlSpot(3, 10),
+                  FlSpot(4, 13),
+                  FlSpot(5, 8),
                   FlSpot(6, 3),
+                  FlSpot(8, 20),
                   FlSpot(12, 2),
+                  FlSpot(15, 20),
                   FlSpot(18, 5),
+                  FlSpot(20, 20),
                   FlSpot(24, 4),
                 ],
                 isCurved: true,
