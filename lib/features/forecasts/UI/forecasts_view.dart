@@ -4,6 +4,7 @@ import 'package:pollution/features/air_quality/ui/widgets/linear_chart.dart';
 import 'package:pollution/features/forecasts/UI/widgets/custom_forecasts_time_container.dart';
 import 'package:pollution/features/forecasts/UI/widgets/custom_pollutant_details_container.dart';
 import 'package:pollution/features/forecasts/UI/widgets/todays_forecast_by_time.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class ForecastsView extends StatefulWidget {
   const ForecastsView({super.key});
@@ -23,7 +24,7 @@ class _ForecastsViewState extends State<ForecastsView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Air Quality Index(AQI) Forecast",
+              S.of(context).AirQualityIndexAQIForecast,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
@@ -36,7 +37,7 @@ class _ForecastsViewState extends State<ForecastsView> {
                     });
                   },
                   child: CustomForecastsTimeContianer(
-                    time: 'Today',
+                    time:S.of(context).Today,
                     isSelected: selectedTime == 'Today',
                   ),
                 ),
@@ -48,7 +49,7 @@ class _ForecastsViewState extends State<ForecastsView> {
                     });
                   },
                   child: CustomForecastsTimeContianer(
-                    time: 'Next 7 Days',
+                    time: S.of(context).Next7Days,
                     isSelected: selectedTime == 'Next 7 Days',
                   ),
                 ),
@@ -69,7 +70,7 @@ class _ForecastsViewState extends State<ForecastsView> {
             ),
             SizedBox(height: 10),
             Text(
-              'Pollutant Details',
+              S.of(context).PollutantDetails,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),

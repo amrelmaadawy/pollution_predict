@@ -123,6 +123,36 @@ class S {
   String get Humidity {
     return Intl.message('Humidity', name: 'Humidity', desc: '', args: []);
   }
+
+  /// `Air Quality Index(AQI) Forecast`
+  String get AirQualityIndexAQIForecast {
+    return Intl.message(
+      'Air Quality Index(AQI) Forecast',
+      name: 'AirQualityIndexAQIForecast',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Today`
+  String get Today {
+    return Intl.message('Today', name: 'Today', desc: '', args: []);
+  }
+
+  /// `Next 7 Days`
+  String get Next7Days {
+    return Intl.message('Next 7 Days', name: 'Next7Days', desc: '', args: []);
+  }
+
+  /// `Pollutant Details`
+  String get PollutantDetails {
+    return Intl.message(
+      'Pollutant Details',
+      name: 'PollutantDetails',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

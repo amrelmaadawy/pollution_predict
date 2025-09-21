@@ -21,5 +21,13 @@
     "Wind":"Wind",
     "@Wind":{},
     "Humidity":"Humidity",
-    "@Humidity":{}
+    "@Humidity":{},
+    "AirQualityIndexAQIForecast":"Air Quality Index(AQI) Forecast",
+    "@AirQualityIndexAQIForecast":{},
+    "Today":"Today",
+    "@Today":{},
+    "Next7Days":"Next 7 Days",
+    "@Next7Days":{},
+    "PollutantDetails":"Pollutant Details",
+    "@PollutantDetails":{}
 }
