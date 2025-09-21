@@ -32,9 +32,12 @@ class ForecastsView extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               border: Border.all(color: kLightBorderColor),
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
             ),
-            child: Column(children: [TodaysForecastsByTime(), LinearChart()]),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(children: [TodaysForecastsByTime(), LinearChart()]),
+            ),
           ),
         ],
       ),

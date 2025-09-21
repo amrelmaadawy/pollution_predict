@@ -1,22 +1,19 @@
-
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
 
 class TodaysForecastsByTime extends StatelessWidget {
-  const TodaysForecastsByTime({
-    super.key,
-  });
+  const TodaysForecastsByTime({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
-      child: ListView.separated(
+      height: 70,
+      child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return SizedBox(
-            width: 70,
+            width: 60,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -44,7 +41,6 @@ class TodaysForecastsByTime extends StatelessWidget {
             ),
           );
         },
-        separatorBuilder: (context, index) => const SizedBox(width: 3),
         itemCount: 12,
       ),
     );
