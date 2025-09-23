@@ -34,7 +34,11 @@
     "@Alerts":{},
      "ViewAll":"View All",
     "@ViewAll":{},
-     "CurrentAQI":"Current AQI",
-    "@CurrentAQI":{}
+    "CurrentAQI":"Current AQI",
+    "@CurrentAQI":{},
+    "DarkMode":"Dark Mode",
+    "@DarkMode":{},
+    "Language":"Language",
+    "@Language":{}
 
 }

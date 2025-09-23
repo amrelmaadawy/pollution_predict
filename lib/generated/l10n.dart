@@ -168,6 +168,16 @@ class S {
   String get CurrentAQI {
     return Intl.message('Current AQI', name: 'CurrentAQI', desc: '', args: []);
   }
+
+  /// `Dark Mode`
+  String get DarkMode {
+    return Intl.message('Dark Mode', name: 'DarkMode', desc: '', args: []);
+  }
+
+  /// `Language`
+  String get Language {
+    return Intl.message('Language', name: 'Language', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

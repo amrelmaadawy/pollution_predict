@@ -27,7 +27,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Alerts": MessageLookupByLibrary.simpleMessage("Alerts"),
     "CurrentAQI": MessageLookupByLibrary.simpleMessage("Current AQI"),
+    "DarkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "Humidity": MessageLookupByLibrary.simpleMessage("Humidity"),
+    "Language": MessageLookupByLibrary.simpleMessage("Language"),
     "Next7Days": MessageLookupByLibrary.simpleMessage("Next 7 Days"),
     "PollutantDetails": MessageLookupByLibrary.simpleMessage(
       "Pollutant Details",
