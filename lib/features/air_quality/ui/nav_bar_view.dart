@@ -4,6 +4,7 @@ import 'package:pollution/features/air_quality/ui/widgets/custom_nav_bar.dart';
 import 'package:pollution/features/air_quality_alerts/UI/air_quality_alerts_view.dart';
 import 'package:pollution/features/air_quality_map/UI/air_quality_map_view.dart';
 import 'package:pollution/features/forecasts/UI/forecasts_view.dart';
+import 'package:pollution/features/setting/UI/setting_view.dart';
 
 import 'package:pollution/generated/l10n.dart';
 
@@ -20,12 +21,14 @@ class _NavBarViewState extends State<NavBarView> {
     "Air Quality Map",
     "Forecasts",
     "Air Quality Status",
+    "Settings"
   ];
   List<Widget> pages = [
     AirQualitiyView(),
     AirQualityMapView(),
     ForecastsView(),
     AirQualityAlertsView(),
+    SettingView()
   ];
   int currentIndex = 0;
 
