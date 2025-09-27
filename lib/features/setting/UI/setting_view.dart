@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pollution/core/cubit/pollution_cubit.dart';
 import 'package:pollution/generated/l10n.dart';
 
 class SettingView extends StatelessWidget {
@@ -8,37 +10,50 @@ class SettingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(15.0),
-      child: Column(
-        children: [
-          Row(
+      child: BlocBuilder<PollutionCubit, PollutionState>(
+        builder: (context, state) {
+          final cubit = context.read<PollutionCubit>();
+
+          return Column(
             children: [
-              Text(
-                S.of(context).DarkMode,
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-              ),
-              Spacer(),
-              Switch(value: true, onChanged: (v) {}),
-            ],
-          ),
-          SizedBox(height: 10),
-          Row(
-            children: [
-              Text(
-                S.of(context).Language,
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-              ),
-              Spacer(),
-              SegmentedButton<String>(
-                segments: const [
-                  ButtonSegment(value: "en", label: Text("English")),
-                  ButtonSegment(value: "ar", label: Text("العربية")),
+              Row(
+                children: [
+                  Text(
+                    S.of(context).DarkMode,
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  Spacer(),
+                  Switch(
+                    value: cubit.isDarkMode,
+                    onChanged: (v) {
+                      cubit.toggleDarkMode();
+                    },
+                  ),
                 ],
-                selected: {"en"},
-                onSelectionChanged: (newValue) {},
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Text(
+                    S.of(context).Language,
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  Spacer(),
+                  SegmentedButton<String>(
+                    segments: const [
+                      ButtonSegment(value: "en", label: Text("English")),
+                      ButtonSegment(value: "ar", label: Text("العربية")),
+                    ],
+                    selected: {cubit.currentLanguage},
+                    onSelectionChanged: (newValue) {
+                      cubit.changeLanguage(newValue.first);
+                    },
+                  ),
+                ],
               ),
             ],
-          ),
-        ],
+          );
+        },
       ),
     );
   }

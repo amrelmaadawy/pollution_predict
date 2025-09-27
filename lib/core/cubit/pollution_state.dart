@@ -4,3 +4,7 @@ part of 'pollution_cubit.dart';
 abstract class PollutionState {}
 
 class PollutionInitial extends PollutionState {}
+
+class DarkModeChangedState extends PollutionState {}
+
+class ChangeLanguageState extends PollutionState {}
