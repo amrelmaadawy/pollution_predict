@@ -5,7 +5,7 @@ import 'package:pollution/core/app_colors.dart';
 class LinearChart extends StatelessWidget {
   const LinearChart({
     super.key,
-    this.height = 250,
+    this.height = 200,
     this.width = double.infinity,
   });
   final double height;

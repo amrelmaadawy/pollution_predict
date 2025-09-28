@@ -21,14 +21,14 @@ class _NavBarViewState extends State<NavBarView> {
     S.of(context).AirQualityMap,
     S.of(context).forecast,
     S.of(context).AirQualityStatus,
-    S.of(context).Setting
+    S.of(context).Setting,
   ];
   List<Widget> pages = [
     AirQualitiyView(),
     AirQualityMapView(),
     ForecastsView(),
     AirQualityAlertsView(),
-    SettingView()
+    SettingView(),
   ];
   int currentIndex = 0;
 
@@ -44,9 +44,14 @@ class _NavBarViewState extends State<NavBarView> {
         },
       ),
       appBar: AppBar(
+        backgroundColor: Theme.of(
+          context,
+        ).scaffoldBackgroundColor, // يخليها زي الخلفية
+        surfaceTintColor: Colors.transparent, // يمنع الـ overlay
+        elevation: 0, // يمنع الظل
         title: Text(
           appBarsTitle[currentIndex],
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),

@@ -17,7 +17,7 @@ class WeatherConditionsContainers extends StatelessWidget {
 
     return Container(
       height: 100,
-      width: 120,
+      width: 110,
       decoration: BoxDecoration(
         border: BoxBorder.all(
           color: isDark ? kDarkBorderColor : kLightBorderColor,
@@ -38,7 +38,7 @@ class WeatherConditionsContainers extends StatelessWidget {
               weatherCondition,
               style: TextStyle(
                 color: isDark ? kDarkSubTextColor : kSubTextColor,
-                fontSize: 18,
+                fontSize: 16,
               ),
             ),
             Text(

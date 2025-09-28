@@ -12,11 +12,13 @@ class CustomPollutantDetailsContainer extends StatelessWidget {
   final String pollutantValue;
   @override
   Widget build(BuildContext context) {
-     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: isDark?kDarkBorderColor: kLightBorderColor),
+        border: Border.all(
+          color: isDark ? kDarkBorderColor : kLightBorderColor,
+        ),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -26,7 +28,10 @@ class CustomPollutantDetailsContainer extends StatelessWidget {
           children: [
             Text(
               pollutantName,
-              style: TextStyle(fontSize: 15, color:isDark?kDarkSubTextColor: kSubTextColor),
+              style: TextStyle(
+                fontSize: 15,
+                color: isDark ? kDarkSubTextColor : kSubTextColor,
+              ),
             ),
             Text(
               pollutantValue,
@@ -34,7 +39,7 @@ class CustomPollutantDetailsContainer extends StatelessWidget {
             ),
             LinearChart(
               height: 100,
-              width: MediaQuery.of(context).size.width * 0.35,
+              width: MediaQuery.of(context).size.width * 0.33,
             ),
           ],
         ),
