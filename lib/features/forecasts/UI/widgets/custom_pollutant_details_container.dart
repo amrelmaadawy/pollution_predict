@@ -12,9 +12,11 @@ class CustomPollutantDetailsContainer extends StatelessWidget {
   final String pollutantValue;
   @override
   Widget build(BuildContext context) {
+     final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: kLightBorderColor),
+        border: Border.all(color: isDark?kDarkBorderColor: kLightBorderColor),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -24,7 +26,7 @@ class CustomPollutantDetailsContainer extends StatelessWidget {
           children: [
             Text(
               pollutantName,
-              style: TextStyle(fontSize: 15, color: kSubTextColor),
+              style: TextStyle(fontSize: 15, color:isDark?kDarkSubTextColor: kSubTextColor),
             ),
             Text(
               pollutantValue,

@@ -6,6 +6,8 @@ class TodaysForecastsByTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return SizedBox(
       height: 70,
       child: ListView.builder(
@@ -27,13 +29,13 @@ class TodaysForecastsByTime extends StatelessWidget {
                 const SizedBox(height: 4),
                 CircleAvatar(
                   radius: 15,
-                  backgroundColor: kLightPrimaryColor,
+                  backgroundColor: isDark?kDarkPrimaryColor: kLightPrimaryColor,
                   child: Text(
                     '50', // القيمة
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color:isDark?Colors.white: Colors.black,
                     ),
                   ),
                 ),

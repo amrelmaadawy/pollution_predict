@@ -17,6 +17,8 @@ class _ForecastsViewState extends State<ForecastsView> {
   String selectedTime = 'Today';
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: SingleChildScrollView(
@@ -37,7 +39,7 @@ class _ForecastsViewState extends State<ForecastsView> {
                     });
                   },
                   child: CustomForecastsTimeContianer(
-                    time:S.of(context).Today,
+                    time: S.of(context).Today,
                     isSelected: selectedTime == 'Today',
                   ),
                 ),
@@ -58,7 +60,9 @@ class _ForecastsViewState extends State<ForecastsView> {
             SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: kLightBorderColor),
+                border: Border.all(
+                  color: isDark ? kDarkBorderColor : kLightBorderColor,
+                ),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(

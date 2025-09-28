@@ -11,9 +11,15 @@ class CustomForecastsTimeContianer extends StatelessWidget {
   final bool isSelected;
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       decoration: BoxDecoration(
-        color: isSelected ? kLightPrimaryColor : kLightHighlightGreenColor,
+        color: isSelected
+            ? kLightPrimaryColor
+            : isDark
+            ? kDarkHighlightGreenColor
+            : kLightHighlightGreenColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
