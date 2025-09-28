@@ -9,6 +9,8 @@ class AirQualityAlertsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
@@ -25,20 +27,23 @@ class AirQualityAlertsView extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
-                  backgroundColor: kLightHighlightGreenColor,
+                  backgroundColor: isDark
+                      ? kDarkHighlightGreenColor
+                      : kLightHighlightGreenColor,
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   alignment: Alignment.centerRight,
                 ),
                 child: Text(
-              S.of(context).ViewAll,
+                  S.of(context).ViewAll,
                   style: TextStyle(
-                    color: kLightPrimaryColor,
+                    color: isDark ? kDarkTextGreenColor : klightGreenTextColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ],
           ),
+          SizedBox(height: 10),
           AlertsListView(),
         ],
       ),

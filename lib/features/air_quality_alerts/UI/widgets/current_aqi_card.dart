@@ -8,6 +8,8 @@ class CurrentAQICard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -22,8 +24,12 @@ class CurrentAQICard extends StatelessWidget {
                 Spacer(),
                 StateContainer(
                   state: S.of(context).good,
-                  textColor: kLightPrimaryColor,
-                  highlightColor: kLightHighlightGreenColor,
+                  textColor: isDark
+                      ? kDarkTextGreenColor
+                      : klightGreenTextColor,
+                  highlightColor: isDark
+                      ? kDarkHighlightGreenColor
+                      : kLightHighlightGreenColor,
                 ),
               ],
             ),
@@ -47,9 +53,9 @@ class CurrentAQICard extends StatelessWidget {
                 alignment: AlignmentGeometry.center,
                 child: Text(
                   '55',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 25,
-                    color: Colors.black,
+                    color: isDark ? Colors.white : Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
