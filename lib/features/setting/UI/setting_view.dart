@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/core/cubit/pollution_cubit.dart';
 import 'package:pollution/generated/l10n.dart';
 
@@ -24,9 +25,10 @@ class SettingView extends StatelessWidget {
                   ),
                   Spacer(),
                   Switch(
+                    activeThumbColor: kDarkTextGreenColor,
+                    activeTrackColor: kDarkHighlightGreenColor,
                     value: state.isDark,
                     onChanged: (v) async {
-                    
                       cubit.toggleTheme(v);
                     },
                   ),
@@ -41,13 +43,36 @@ class SettingView extends StatelessWidget {
                   ),
                   Spacer(),
                   SegmentedButton<String>(
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.resolveWith<Color?>((
+                        states,
+                      ) {
+                        if (states.contains(WidgetState.selected)) {
+                          return state.isDark
+                              ? kDarkHighlightGreenColor
+                              : kLightHighlightGreenColor; // لون الاكتف
+                        }
+                        return Theme.of(
+                          context,
+                        ).colorScheme.surface; // لون العادي
+                      }),
+                      foregroundColor: WidgetStateProperty.resolveWith<Color?>((
+                        states,
+                      ) {
+                        if (states.contains(WidgetState.selected)) {
+                          return state.isDark
+                              ? kDarkTextGreenColor
+                              : klightGreenTextColor; // لون النص لما يكون Active
+                        }
+                        return Colors.grey.shade700; // لون النص العادي
+                      }),
+                    ),
                     segments: const [
                       ButtonSegment(value: "en", label: Text("English")),
                       ButtonSegment(value: "ar", label: Text("العربية")),
                     ],
                     selected: {state.language},
-                    onSelectionChanged: (newValue)async {
-                      
+                    onSelectionChanged: (newValue) async {
                       cubit.changeLanguage(newValue.first);
                     },
                   ),
