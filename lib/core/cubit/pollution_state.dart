@@ -1,10 +1,21 @@
 part of 'pollution_cubit.dart';
 
 @immutable
-abstract class PollutionState {}
+abstract class PollutionState {
+  final bool isDark;
+  final String language;
 
-class PollutionInitial extends PollutionState {}
+  const PollutionState({required this.isDark, required this.language});
+}
 
-class DarkModeChangedState extends PollutionState {}
+class PollutionInitial extends PollutionState {
+  const PollutionInitial({required super.isDark, required super.language});
+}
 
-class ChangeLanguageState extends PollutionState {}
+class DarkModeChangedState extends PollutionState {
+  const DarkModeChangedState({required super.isDark, required super.language});
+}
+
+class ChangeLanguageState extends PollutionState {
+  const ChangeLanguageState({required super.isDark, required super.language});
+}

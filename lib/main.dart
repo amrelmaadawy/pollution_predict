@@ -4,13 +4,21 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pollution/core/cubit/pollution_cubit.dart';
 import 'package:pollution/features/air_quality/ui/nav_bar_view.dart';
 import 'package:pollution/generated/l10n.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+    WidgetsFlutterBinding.ensureInitialized(); 
+
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool? isDark = prefs.getBool("isDark");
+  String? lang = prefs.getString("Language");
   runApp(
-    BlocProvider(create: (context) => PollutionCubit(), child: const MyApp()),
+    BlocProvider(
+      create: (context) => PollutionCubit(isDark??false,lang??'en'),
+      child: MyApp(),
+    ),
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,21 +26,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PollutionCubit, PollutionState>(
       builder: (context, state) {
-        final cubit = context.read<PollutionCubit>();
         return MaterialApp(
-          theme: cubit.isDarkMode ? ThemeData.dark() : ThemeData.light(),
-          localizationsDelegates: [
+          theme: state.isDark ? ThemeData.dark() : ThemeData.light(),
+          locale: Locale(state.language),
+          supportedLocales: S.delegate.supportedLocales,
+          localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
           debugShowCheckedModeBanner: false,
-          locale: Locale(cubit.currentLanguage),
-          supportedLocales: S.delegate.supportedLocales,
-          home: NavBarView(),
+          home: const NavBarView(),
         );
       },
     );
   }
 }
+

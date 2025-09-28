@@ -24,9 +24,10 @@ class SettingView extends StatelessWidget {
                   ),
                   Spacer(),
                   Switch(
-                    value: cubit.isDarkMode,
-                    onChanged: (v) {
-                      cubit.toggleDarkMode();
+                    value: state.isDark,
+                    onChanged: (v) async {
+                    
+                      cubit.toggleTheme(v);
                     },
                   ),
                 ],
@@ -44,8 +45,9 @@ class SettingView extends StatelessWidget {
                       ButtonSegment(value: "en", label: Text("English")),
                       ButtonSegment(value: "ar", label: Text("العربية")),
                     ],
-                    selected: {cubit.currentLanguage},
-                    onSelectionChanged: (newValue) {
+                    selected: {state.language},
+                    onSelectionChanged: (newValue)async {
+                      
                       cubit.changeLanguage(newValue.first);
                     },
                   ),
