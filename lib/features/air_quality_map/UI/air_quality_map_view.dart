@@ -23,49 +23,51 @@ class AirQualityMapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    
-  FlutterMap(
-        options: MapOptions(
-          initialCenter: LatLng(30.0444, 31.2357), // مركز القاهرة
-          initialZoom: 6.5,
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return FlutterMap(
+      options: MapOptions(
+        initialCenter: LatLng(30.0444, 31.2357),
+        initialZoom: 6.5,
+      ),
+      children: [
+        TileLayer(
+          urlTemplate: isDark
+              ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+              : "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+          subdomains: const ['a', 'b', 'c'],
+          userAgentPackageName: "com.example.pollution_map",
         ),
-        children: [
-          TileLayer(
-            urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-            userAgentPackageName: "com.example.pollution_map",
-          ),
-          CircleLayer(
-            circles: pollutionData.map((point) {
-              double radius;
-              Color color;
+        CircleLayer(
+          circles: pollutionData.map((point) {
+            double radius;
+            Color color;
 
-              switch (point["level"]) {
-                case "High":
-                  radius = 50000000; // نصف قطر (متر)
-                  color = Colors.red.withValues(alpha:0.4);
-                  break;
-                case "Medium":
-                  radius = 30000000;
-                  color = Colors.orange.withValues(alpha:0.4);
-                  break;
-                default:
-                  radius = 20000000;
-                  color = Colors.green.withValues(alpha:0.4);
-              }
+            switch (point["level"]) {
+              case "High":
+                radius = 50000000;
+                color = Colors.red.withValues(alpha:0.4);
+                break;
+              case "Medium":
+                radius = 30000000;
+                color = Colors.orange.withValues(alpha:0.4);
+                break;
+              default:
+                radius = 20000000;
+                color = Colors.green.withValues(alpha:0.4);
+            }
 
-              return CircleMarker(
-                point: point["location"],
-                radius: radius / 1000, // flutter_map بيقيس بالكيلومتر تقريبًا
-                useRadiusInMeter: true,
-                color: color,
-                borderStrokeWidth: 2,
-                borderColor: Colors.red.shade900,
-              );
-            }).toList(),
-          ),
-        ],
-      );
-    
+            return CircleMarker(
+              point: point["location"],
+              radius: radius / 1000,
+              useRadiusInMeter: true,
+              color: color,
+              borderStrokeWidth: 2,
+              borderColor: Colors.red.shade900,
+            );
+          }).toList(),
+        ),
+      ],
+    );
   }
 }
