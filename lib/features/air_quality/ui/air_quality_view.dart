@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/features/air_quality/ui/widgets/custom_pollution_amount_container.dart';
@@ -7,12 +6,12 @@ import 'package:pollution/features/air_quality/ui/widgets/weather_conditions_con
 import 'package:pollution/generated/l10n.dart';
 
 class AirQualitiyView extends StatelessWidget {
-  const AirQualitiyView({
-    super.key,
-  });
+  const AirQualitiyView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: SingleChildScrollView(
@@ -31,8 +30,12 @@ class AirQualitiyView extends StatelessWidget {
                   pollutionAmount: '15 µg/m³',
                   icon: Icons.air,
                   state: S.of(context).good,
-                  textColor: kLightPrimaryColor,
-                  highlightColor: kLightHighlightGreenColor,
+                  textColor: isDark
+                      ? kDarkTextGreenColor
+                      : klightGreenTextColor,
+                  highlightColor: isDark
+                      ? kDarkHighlightGreenColor
+                      : kLightHighlightGreenColor,
                 ),
                 Spacer(),
                 CutsomPollutionAmoutContainer(
@@ -40,8 +43,10 @@ class AirQualitiyView extends StatelessWidget {
                   pollutionAmount: '20 ppb',
                   icon: Icons.air,
                   state: S.of(context).moderate,
-                  textColor: kYellowTextColor,
-                  highlightColor: kLightHighlightYellowColor,
+                  textColor: isDark ? kDarkYellowTextColor : kYellowTextColor,
+                  highlightColor: isDark
+                      ? kDarkHighlightYellowColor
+                      : kLightHighlightYellowColor,
                 ),
               ],
             ),
@@ -53,8 +58,10 @@ class AirQualitiyView extends StatelessWidget {
                   pollutionAmount: '45 ppb',
                   icon: Icons.wb_sunny_outlined,
                   state: S.of(context).unhealthy,
-                  textColor: kRedTextColor,
-                  highlightColor: kLightHighlightRedColor,
+                  textColor: isDark ? kDarkRedTextColor : kRedTextColor,
+                  highlightColor: isDark
+                      ? kDarkHighlightRedColor
+                      : kLightHighlightRedColor,
                 ),
                 Spacer(),
                 CutsomPollutionAmoutContainer(
@@ -62,8 +69,10 @@ class AirQualitiyView extends StatelessWidget {
                   pollutionAmount: '5 ppb',
                   icon: Icons.cloud_outlined,
                   state: S.of(context).unhealthy,
-                  textColor: kRedTextColor,
-                  highlightColor: kLightHighlightRedColor,
+                  textColor: isDark ? kDarkRedTextColor : kRedTextColor,
+                  highlightColor: isDark
+                      ? kDarkHighlightRedColor
+                      : kLightHighlightRedColor,
                 ),
               ],
             ),
@@ -76,7 +85,9 @@ class AirQualitiyView extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: kLightBorderColor),
+                border: Border.all(
+                  color: isDark ? kDarkBorderColor : kLightBorderColor,
+                ),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -85,7 +96,10 @@ class AirQualitiyView extends StatelessWidget {
                   children: [
                     Text(
                       S.of(context).aqiTrend,
-                      style: TextStyle(color: kSubTextColor, fontSize: 17),
+                      style: TextStyle(
+                        color: isDark ? kDarkSubTextColor : kSubTextColor,
+                        fontSize: 17,
+                      ),
                     ),
                     Text(
                       "60",

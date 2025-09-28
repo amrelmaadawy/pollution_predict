@@ -14,16 +14,20 @@ class CustomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? const Color(0xFF121212) : Colors.white,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(24),
           topRight: Radius.circular(24),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.2),
+            color: isDark
+                ? Colors.black.withValues(alpha: 0.4)
+                : Colors.grey.withValues(alpha: 0.2),
             blurRadius: 10,
             offset: const Offset(0, -3),
           ),
@@ -34,9 +38,11 @@ class CustomNavBar extends StatelessWidget {
         child: GNav(
           gap: 8,
           backgroundColor: Colors.transparent,
-          color: Colors.black54,
-          activeColor: Colors.green.shade700,
-          tabBackgroundColor: Colors.green.shade100,
+          color: isDark ? Colors.white70 : Colors.black54,
+          activeColor: isDark ? Colors.greenAccent : Colors.green.shade700,
+          tabBackgroundColor: isDark
+              ? Colors.greenAccent.withValues(alpha:0.2)
+              : Colors.green.shade100,
           padding: const EdgeInsets.all(12),
           selectedIndex: selectedIndex,
           onTabChange: onTabChange,

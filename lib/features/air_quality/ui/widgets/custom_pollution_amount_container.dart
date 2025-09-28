@@ -20,11 +20,13 @@ class CutsomPollutionAmoutContainer extends StatelessWidget {
   final Color highlightColor;
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       height: 120,
       width: MediaQuery.of(context).size.width * 0.44,
       decoration: BoxDecoration(
-        border: Border.all(color: kLightBorderColor),
+        border: Border.all(color:isDark?kDarkBorderColor: kLightBorderColor),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -35,9 +37,9 @@ class CutsomPollutionAmoutContainer extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(icon, color: kSubTextColor),
+                Icon(icon, color:isDark?kDarkSubTextColor: kSubTextColor),
                 SizedBox(width: 5),
-                Text(pollutionType, style: TextStyle(color: kSubTextColor)),
+                Text(pollutionType, style: TextStyle(color:isDark?kDarkSubTextColor: kSubTextColor)),
               ],
             ),
             Text(

@@ -10,8 +10,19 @@ class LinearChart extends StatelessWidget {
   });
   final double height;
   final double width;
+
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final lineColor = isDark ? Colors.greenAccent : kLightPrimaryColor;
+    final belowGradient = isDark
+        ? [Colors.greenAccent.withValues(alpha: 0.3), Colors.transparent]
+        : [
+            kLightHighlightGreenColor.withValues(alpha: 0.5),
+            kLightHighlightGreenColor.withValues(alpha: 0),
+          ];
+
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: SizedBox(
@@ -21,53 +32,20 @@ class LinearChart extends StatelessWidget {
           LineChartData(
             gridData: FlGridData(show: false),
             borderData: FlBorderData(show: false),
-
             titlesData: FlTitlesData(
               bottomTitles: AxisTitles(
                 sideTitles: SideTitles(
                   showTitles: true,
                   reservedSize: 30,
-                  interval: 6, // كل كام وحدة يظهر label (0, 6, 12, 18, 24)
-                  // getTitlesWidget: (value, meta) {
-                  //   switch (value.toInt()) {
-                  //     case 0:
-                  //       return const Text(
-                  //         "0h",
-                  //         style: TextStyle(fontWeight: FontWeight.bold),
-                  //       );
-                  //     case 6:
-                  //       return const Text(
-                  //         "6h",
-                  //         style: TextStyle(fontWeight: FontWeight.bold),
-                  //       );
-                  //     case 12:
-                  //       return const Text(
-                  //         "12h",
-                  //         style: TextStyle(fontWeight: FontWeight.bold),
-                  //       );
-                  //     case 18:
-                  //       return const Text(
-                  //         "18h",
-                  //         style: TextStyle(fontWeight: FontWeight.bold),
-                  //       );
-                  //     case 24:
-                  //       return const Text(
-                  //         "24h",
-                  //         style: TextStyle(fontWeight: FontWeight.bold),
-                  //       );
-                  //   }
-                  //   return const SizedBox.shrink();
-                  // },
+                  interval: 6,
                 ),
               ),
-
               leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
               topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
               rightTitles: AxisTitles(
                 sideTitles: SideTitles(showTitles: false),
               ),
             ),
-
             lineBarsData: [
               LineChartBarData(
                 spots: const [
@@ -84,16 +62,22 @@ class LinearChart extends StatelessWidget {
                   FlSpot(24, 4),
                 ],
                 isCurved: true,
-                color: kLightPrimaryColor,
+                color: lineColor,
                 barWidth: 4,
-                dotData: FlDotData(show: true),
+                dotData: FlDotData(
+                  show: true,
+                  getDotPainter: (spot, percent, barData, index) =>
+                      FlDotCirclePainter(
+                        radius: 4,
+                        color: isDark ? Colors.white : kLightPrimaryColor,
+                        strokeWidth: 2,
+                        strokeColor: lineColor,
+                      ),
+                ),
                 belowBarData: BarAreaData(
                   show: true,
                   gradient: LinearGradient(
-                    colors: [
-                      kLightHighlightGreenColor.withValues(alpha: 0.5),
-                      kLightHighlightGreenColor.withValues(alpha: 0),
-                    ],
+                    colors: belowGradient,
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
