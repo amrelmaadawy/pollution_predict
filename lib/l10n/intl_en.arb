@@ -32,13 +32,26 @@
     "@PollutantDetails":{},
     "Alerts":"Alerts",
     "@Alerts":{},
-     "ViewAll":"View All",
+    "ViewAll":"View All",
     "@ViewAll":{},
     "CurrentAQI":"Current AQI",
     "@CurrentAQI":{},
     "DarkMode":"Dark Mode",
     "@DarkMode":{},
     "Language":"Language",
-    "@Language":{}
+    "@Language":{},
+    "AirQualityMap":"Air Quality Map",
+    "@AirQualityMap":{},
+    "forecast":"forecast",
+    "@forecast":{},
+    "AirQualityStatus":"Air Quality Status",
+    "@AirQualityStatus":{}, 
+    "Setting":"Settings",
+    "@Setting":{},
+     "Dashboard":"Dashboard",
+    "@Dashboard":{},
+    "Map":"Map",
+    "@Map":{}
+   
 
 }

@@ -178,6 +178,46 @@ class S {
   String get Language {
     return Intl.message('Language', name: 'Language', desc: '', args: []);
   }
+
+  /// `Air Quality Map`
+  String get AirQualityMap {
+    return Intl.message(
+      'Air Quality Map',
+      name: 'AirQualityMap',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `forecast`
+  String get forecast {
+    return Intl.message('forecast', name: 'forecast', desc: '', args: []);
+  }
+
+  /// `Air Quality Status`
+  String get AirQualityStatus {
+    return Intl.message(
+      'Air Quality Status',
+      name: 'AirQualityStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get Setting {
+    return Intl.message('Settings', name: 'Setting', desc: '', args: []);
+  }
+
+  /// `Dashboard`
+  String get Dashboard {
+    return Intl.message('Dashboard', name: 'Dashboard', desc: '', args: []);
+  }
+
+  /// `Map`
+  String get Map {
+    return Intl.message('Map', name: 'Map', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

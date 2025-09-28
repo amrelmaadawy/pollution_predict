@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class CustomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -39,15 +40,21 @@ class CustomNavBar extends StatelessWidget {
           padding: const EdgeInsets.all(12),
           selectedIndex: selectedIndex,
           onTabChange: onTabChange,
-          tabs: const [
+          tabs: [
             GButton(
               icon: Icons.dashboard_customize_outlined,
-              text: "Dashboard",
+              text: S.of(context).Dashboard,
             ),
-            GButton(icon: Icons.map_outlined, text: "Map"),
-            GButton(icon: Icons.wb_sunny_outlined, text: "Forecasts"),
-            GButton(icon: Icons.notifications_active_outlined, text: "Alerts"),
-            GButton(icon: Icons.settings_outlined, text: "Setting"),
+            GButton(icon: Icons.map_outlined, text: S.of(context).Map),
+            GButton(
+              icon: Icons.wb_sunny_outlined,
+              text: S.of(context).forecast,
+            ),
+            GButton(
+              icon: Icons.notifications_active_outlined,
+              text: S.of(context).Alerts,
+            ),
+            GButton(icon: Icons.settings_outlined, text: S.of(context).Setting),
           ],
         ),
       ),

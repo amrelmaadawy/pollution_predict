@@ -39,5 +39,23 @@
     "DarkMode": "الوضع الداكن",
     "@DarkMode": {},
     "Language": "اللغة",
-    "@Language": {}
+    "@Language": {},
+    "AirQualityMap": "خريطة جودة الهواء",
+    "@AirQualityMap": {},
+
+    "forecast": "التوقعات",
+    "@forecast": {},
+
+    "AirQualityStatus": "حالة جودة الهواء",
+    "@AirQualityStatus": {},
+
+    "Setting": "الإعدادات",
+    "@Setting": {},
+
+    "Dashboard": "لوحة التحكم",
+    "@Dashboard": {},
+
+    "Map": "الخريطة",
+    "@Map": {}
+
 }

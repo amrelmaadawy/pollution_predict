@@ -18,10 +18,10 @@ class NavBarView extends StatefulWidget {
 class _NavBarViewState extends State<NavBarView> {
   late List<String> appBarsTitle = [
     S.of(context).airQuality,
-    "Air Quality Map",
-    "Forecasts",
-    "Air Quality Status",
-    "Settings"
+    S.of(context).AirQualityMap,
+    S.of(context).forecast,
+    S.of(context).AirQualityStatus,
+    S.of(context).Setting
   ];
   List<Widget> pages = [
     AirQualitiyView(),
