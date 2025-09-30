@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
+import 'package:pollution/core/model/prediction_model.dart';
 
 part 'predict_state.dart';
 
@@ -36,6 +38,25 @@ class PredictCubit extends Cubit<PredictState> {
       );
 
       final prediction = response.data["prediction"];
+      final box = Hive.box<PredictionModel>('pollutionBox');
+
+      box.add(
+        PredictionModel(
+          date: DateTime.now().toString(),
+          prediction: prediction.toString(),
+          pollutants: {
+            "pm10": pm10,
+            "no2": no2,
+            "so2": so2,
+            "co": co,
+            "o3": o3,
+            "temperature": temperature,
+            "humidity": humidity,
+            "wind": wind,
+          },
+        ),
+      );
+
       if (kDebugMode) {
         print('predicted successsssssssssssssssssssssssssssssssssssssss');
         print(prediction);
@@ -44,6 +65,7 @@ class PredictCubit extends Cubit<PredictState> {
     } catch (e) {
       if (kDebugMode) {
         print('Errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr');
+        print(e);
       }
       emit(PredictionError(e.toString()));
     }

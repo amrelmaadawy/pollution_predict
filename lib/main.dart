@@ -1,24 +1,37 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:pollution/core/cubit/pollution_cubit.dart';
+import 'package:pollution/core/model/prediction_model.dart';
 import 'package:pollution/features/home/ui/nav_bar_view.dart';
+import 'package:pollution/features/predict/logic/cubit/predict_cubit.dart';
 import 'package:pollution/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
-    WidgetsFlutterBinding.ensureInitialized(); 
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(PredictionModelAdapter());
+  await Hive.openBox<PredictionModel>('pollutionBox');
 
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   bool? isDark = prefs.getBool("isDark");
   String? lang = prefs.getString("Language");
   runApp(
-    BlocProvider(
-      create: (context) => PollutionCubit(isDark??false,lang??'en'),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => PredictCubit(Dio())),
+        BlocProvider(
+          create: (context) => PollutionCubit(isDark ?? false, lang ?? 'en'),
+        ),
+      ],
       child: MyApp(),
     ),
   );
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -43,4 +56,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

@@ -30,7 +30,6 @@ class CustomTextFormField extends StatelessWidget {
           validator: validator,
           keyboardType: keyboardType,
           cursorColor: klightGreenTextColor,
-          style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
             suffixIcon: suffixIcon,
             labelText: labelText,

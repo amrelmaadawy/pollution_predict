@@ -3,8 +3,10 @@ import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/features/history/ui/widgets/pollutants_levels_item.dart';
 
 class PredictionItem extends StatelessWidget {
-  const PredictionItem({super.key});
-
+  const PredictionItem({super.key, required this.date, required this.prediction, required this.pollution});
+  final String date;
+  final String prediction;
+  final Map<String, double> pollution;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -16,13 +18,13 @@ class PredictionItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('1-2-2024', style: TextStyle(fontSize: 18)),
+                  Text(date, style: TextStyle(fontSize: 18)),
                   Row(
                     children: [
                       Text('Prediction:', style: TextStyle(fontSize: 18)),
                       const SizedBox(width: 5),
                       Text(
-                        'Good',
+                        'Good [$prediction]',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: klightGreenTextColor,

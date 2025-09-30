@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:pollution/core/model/prediction_model.dart';
 import 'package:pollution/features/history/ui/widgets/preditction_item.dart';
 
 class HistoryView extends StatelessWidget {
@@ -6,22 +8,45 @@ class HistoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.8,
-
-            child: ListView.separated(
-              shrinkWrap: true,
-              itemBuilder: (context, index) => PredictionItem(),
-              separatorBuilder: (context, index) => SizedBox(height: 5),
-              itemCount: 10,
-            ),
-          ),
-        ],
-      ),
+    final box = Hive.box<PredictionModel>('pollutionBox');
+    final predictions = box.values.toList();
+    return ValueListenableBuilder(
+      valueListenable: box.listenable(),
+      builder: (BuildContext context, value, Widget? child) {
+        return Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: predictions.isEmpty
+              ? const Center(
+                  child: Text(
+                    "No predictions saved yet.",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                )
+              : Column(
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.8,
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          final item = predictions[index];
+                          return PredictionItem(
+                            date: item.date,
+                            prediction: item.prediction,
+                            pollution: Map<String, double>.from(
+                              item.pollutants,
+                            ),
+                          );
+                        },
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(height: 5),
+                        itemCount: predictions.length,
+                      ),
+                    ),
+                  ],
+                ),
+        );
+      },
     );
   }
 }
