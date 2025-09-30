@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pollution/features/air_quality/ui/air_quality_view.dart';
-import 'package:pollution/features/air_quality/ui/widgets/custom_nav_bar.dart';
-import 'package:pollution/features/air_quality_alerts/UI/air_quality_alerts_view.dart';
+import 'package:pollution/features/home/ui/custom_nav_bar.dart';
 import 'package:pollution/features/air_quality_map/UI/air_quality_map_view.dart';
-import 'package:pollution/features/forecasts/UI/forecasts_view.dart';
+import 'package:pollution/features/home/ui/home.dart';
 import 'package:pollution/features/setting/UI/setting_view.dart';
 
 import 'package:pollution/generated/l10n.dart';
@@ -19,17 +17,10 @@ class _NavBarViewState extends State<NavBarView> {
   late List<String> appBarsTitle = [
     S.of(context).airQuality,
     S.of(context).AirQualityMap,
-    S.of(context).forecast,
-    S.of(context).AirQualityStatus,
+
     S.of(context).Setting,
   ];
-  List<Widget> pages = [
-    AirQualitiyView(),
-    AirQualityMapView(),
-    ForecastsView(),
-    AirQualityAlertsView(),
-    SettingView(),
-  ];
+  List<Widget> pages = [Home(), AirQualityMapView(), SettingView()];
   int currentIndex = 0;
 
   @override

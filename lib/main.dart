@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pollution/core/cubit/pollution_cubit.dart';
-import 'package:pollution/features/air_quality/ui/nav_bar_view.dart';
+import 'package:pollution/features/home/ui/nav_bar_view.dart';
 import 'package:pollution/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

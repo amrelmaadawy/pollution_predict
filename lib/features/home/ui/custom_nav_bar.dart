@@ -41,25 +41,15 @@ class CustomNavBar extends StatelessWidget {
           color: isDark ? Colors.white70 : Colors.black54,
           activeColor: isDark ? Colors.greenAccent : Colors.green.shade700,
           tabBackgroundColor: isDark
-              ? Colors.greenAccent.withValues(alpha:0.2)
+              ? Colors.greenAccent.withValues(alpha: 0.2)
               : Colors.green.shade100,
           padding: const EdgeInsets.all(12),
           selectedIndex: selectedIndex,
           onTabChange: onTabChange,
           tabs: [
-            GButton(
-              icon: Icons.dashboard_customize_outlined,
-              text: S.of(context).Dashboard,
-            ),
+            GButton(icon: Icons.home_outlined, text: 'Home'),
             GButton(icon: Icons.map_outlined, text: S.of(context).Map),
-            GButton(
-              icon: Icons.wb_sunny_outlined,
-              text: S.of(context).forecast,
-            ),
-            GButton(
-              icon: Icons.notifications_active_outlined,
-              text: S.of(context).Alerts,
-            ),
+
             GButton(icon: Icons.settings_outlined, text: S.of(context).Setting),
           ],
         ),
