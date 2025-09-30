@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:pollution/core/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -29,12 +29,13 @@ class CustomTextFormField extends StatelessWidget {
           controller: controller,
           validator: validator,
           keyboardType: keyboardType,
+          cursorColor: klightGreenTextColor,
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
             suffixIcon: suffixIcon,
             labelText: labelText,
-            labelStyle: const TextStyle(
-              color: Colors.white70,
+            labelStyle: TextStyle(
+              color: kSubTextColor,
               fontWeight: FontWeight.w500,
             ),
             filled: true,
@@ -42,11 +43,10 @@ class CustomTextFormField extends StatelessWidget {
               horizontal: 16,
               vertical: 14,
             ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: kSubTextColor),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/features/predict/logic/cubit/predict_cubit.dart';
-import 'package:pollution/features/predict/ui/widgets/data_form_field.dart';
+import 'package:pollution/features/predict/ui/widgets/custom_text_form_field.dart';
 
 class PredictView extends StatefulWidget {
   const PredictView({super.key});
@@ -21,9 +21,20 @@ class _PredictViewState extends State<PredictView> {
   TextEditingController tempController = TextEditingController();
   TextEditingController humdintyController = TextEditingController();
   TextEditingController windController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        title: Text(
+          'Predict Air Quality Index',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: BlocProvider(
@@ -31,116 +42,156 @@ class _PredictViewState extends State<PredictView> {
           child: BlocBuilder<PredictCubit, PredictState>(
             builder: (context, state) {
               return SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Text('Enter the data'),
-                    SizedBox(height: 20),
-                    CustomTextFormField(
-                      controller: pm10Controller,
-                      text: 'pm10',
-                      labelText: 'pm10',
-                      validator: (p1) {
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextFormField(
-                      controller: no2Controller,
-                      text: 'no2',
-                      labelText: 'no2',
-                      validator: (p1) {
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextFormField(
-                      controller: so2Controller,
-                      text: 'so2',
-                      labelText: 'so2',
-                      validator: (p1) {
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextFormField(
-                      controller: coController,
-                      text: 'co',
-                      labelText: 'co',
-                      validator: (p1) {
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextFormField(
-                      controller: tempController,
-                      text: 'temp',
-                      labelText: 'temp',
-                      validator: (p1) {
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextFormField(
-                      controller: o3Controller,
-                      text: 'o3',
-                      labelText: 'o3',
-                      validator: (p1) {
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextFormField(
-                      controller: windController,
-                      text: 'wind',
-                      labelText: 'wind',
-                      validator: (p1) {
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextFormField(
-                      controller: humdintyController,
-                      text: 'humdinty',
-                      labelText: 'humdinty',
-                      validator: (p1) {
-                        return null;
-                      },
-                      keyboardType: TextInputType.number,
-                    ),
-                    SizedBox(height: 10),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: kDarkHighlightGreenColor,
-                        minimumSize: Size(200, 40),
-                      ),
-                      onPressed: () async{
-                       await context.read<PredictCubit>().getPrediction(
-                          pm10: double.parse(pm10Controller.text),
-                          no2: double.parse(pm10Controller.text),
-                          so2: double.parse(pm10Controller.text),
-                          co: double.parse(pm10Controller.text),
-                          o3: double.parse(pm10Controller.text),
-                          temperature: double.parse(pm10Controller.text),
-                          humidity: double.parse(pm10Controller.text),
-                          wind: double.parse(pm10Controller.text),
-                        );
-                      },
-                      child: Text(
-                        'Predict',
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: kDarkTextGreenColor,
+                child: SafeArea(
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Enter Air Quality Data',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
+                        SizedBox(height: 10),
+                        CustomTextFormField(
+                          controller: pm10Controller,
+                          text: 'PM10',
+                          labelText: 'PM10',
+                          validator: (p1) {
+                            if (p1!.isEmpty) {
+                              return 'This Field is Required';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                        ),
+                        SizedBox(height: 10),
+                        CustomTextFormField(
+                          controller: no2Controller,
+                          text: 'NO2',
+                          labelText: 'NO2',
+                          validator: (p1) {
+                            if (p1!.isEmpty) {
+                              return 'This Field is Required';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                        ),
+                        SizedBox(height: 10),
+                        CustomTextFormField(
+                          controller: so2Controller,
+                          text: 'SO2',
+                          labelText: 'SO2',
+                          validator: (p1) {
+                            if (p1!.isEmpty) {
+                              return 'This Field is Required';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                        ),
+                        SizedBox(height: 10),
+                        CustomTextFormField(
+                          controller: coController,
+                          text: 'CO',
+                          labelText: 'CO',
+                          validator: (p1) {
+                            if (p1!.isEmpty) {
+                              return 'This Field is Required';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                        ),
+                        SizedBox(height: 10),
+                        CustomTextFormField(
+                          controller: tempController,
+                          text: 'Temprature',
+                          labelText: 'Temprature',
+                          validator: (p1) {
+                            if (p1!.isEmpty) {
+                              return 'This Field is Required';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                        ),
+                        SizedBox(height: 10),
+                        CustomTextFormField(
+                          controller: o3Controller,
+                          text: 'O3',
+                          labelText: 'O3',
+                          validator: (p1) {
+                            if (p1!.isEmpty) {
+                              return 'This Field is Required';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                        ),
+                        SizedBox(height: 10),
+                        CustomTextFormField(
+                          controller: windController,
+                          text: 'Wind Speed',
+                          labelText: 'Wind Speed',
+                          validator: (p1) {
+                            if (p1!.isEmpty) {
+                              return 'This Field is Required';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                        ),
+                        SizedBox(height: 10),
+                        CustomTextFormField(
+                          controller: humdintyController,
+                          text: 'Humdinty',
+                          labelText: 'Humidity',
+                          validator: (p1) {
+                            if (p1!.isEmpty) {
+                              return 'This Field is Required';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                        ),
+                        SizedBox(height: 20),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: kLightHighlightGreenColor,
+                            minimumSize: Size(double.infinity, 50),
+                          ),
+                          onPressed: () async {
+                            if (!formKey.currentState!.validate()) {
+                              return;
+                            }
+                            await context.read<PredictCubit>().getPrediction(
+                              pm10: double.parse(pm10Controller.text),
+                              no2: double.parse(no2Controller.text),
+                              so2: double.parse(so2Controller.text),
+                              co: double.parse(coController.text),
+                              o3: double.parse(o3Controller.text),
+                              temperature: double.parse(tempController.text),
+                              humidity: double.parse(humdintyController.text),
+                              wind: double.parse(windController.text),
+                            );
+                          },
+                          child: Text(
+                            'Predict',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: klightGreenTextColor,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               );
             },
