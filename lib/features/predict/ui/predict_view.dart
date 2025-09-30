@@ -109,19 +109,6 @@ class _PredictViewState extends State<PredictView> {
                         ),
                         SizedBox(height: 10),
                         CustomTextFormField(
-                          controller: tempController,
-                          text: 'Temprature',
-                          labelText: 'Temprature',
-                          validator: (p1) {
-                            if (p1!.isEmpty) {
-                              return 'This Field is Required';
-                            }
-                            return null;
-                          },
-                          keyboardType: TextInputType.number,
-                        ),
-                        SizedBox(height: 10),
-                        CustomTextFormField(
                           controller: o3Controller,
                           text: 'O3',
                           labelText: 'O3',
@@ -134,6 +121,20 @@ class _PredictViewState extends State<PredictView> {
                           keyboardType: TextInputType.number,
                         ),
                         SizedBox(height: 10),
+                        CustomTextFormField(
+                          controller: tempController,
+                          text: 'Temprature',
+                          labelText: 'Temprature',
+                          validator: (p1) {
+                            if (p1!.isEmpty) {
+                              return 'This Field is Required';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                        ),
+                        SizedBox(height: 10),
+
                         CustomTextFormField(
                           controller: windController,
                           text: 'Wind Speed',
