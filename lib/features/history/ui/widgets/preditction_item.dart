@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
-import 'package:pollution/features/history/ui/widgets/pollutants_levels_item.dart';
+import 'package:pollution/core/time_formatte.dart';
+import 'package:pollution/features/history/ui/widgets/prediction_detailes_view.dart';
 
 class PredictionItem extends StatelessWidget {
   const PredictionItem({super.key, required this.date, required this.prediction, required this.pollution});
@@ -18,7 +19,7 @@ class PredictionItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(date, style: TextStyle(fontSize: 18)),
+                  Text(formatDateTime(date), style: TextStyle(fontSize: 18)),
                   Row(
                     children: [
                       Text('Prediction:', style: TextStyle(fontSize: 18)),
@@ -34,7 +35,7 @@ class PredictionItem extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'Pollutants: PM10:12, NO2:12, SO2:12, CO:21, O3:121',
+                    'Pollutants: PM10:${pollution['pm10']}, NO2:${pollution['no2']}, SO2:${pollution['so2']}, CO:${pollution['co']}, O3:${pollution['o3']}',
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 15, color: kSubTextColor),
                   ),
@@ -48,131 +49,7 @@ class PredictionItem extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (context) {
-                        return Dialog(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Container(
-                            padding: const EdgeInsets.all(20),
-                            width: 300,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      backgroundColor:
-                                          kLightHighlightGreenColor,
-                                      child: Icon(
-                                        Icons.air,
-                                        color: klightGreenTextColor,
-                                      ),
-                                    ),
-                                    SizedBox(width: 10),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Prediction Details',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Text(
-                                          '10-2-2024',
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: kSubTextColor,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 10),
-                                Row(
-                                  children: [
-                                    Text(
-                                      'Overall Quality',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: kSubTextColor,
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Text(
-                                      'Good [50]',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: klightGreenTextColor,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Divider(),
-                                Text(
-                                  'Pollutants Levels',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                                PollutantsLevelsItem(
-                                  pollutant: 'PM10',
-                                  value: '21',
-                                ),
-                                PollutantsLevelsItem(
-                                  pollutant: 'Co',
-                                  value: '21',
-                                ),
-                                PollutantsLevelsItem(
-                                  pollutant: 'O3',
-                                  value: '21',
-                                ),
-                                PollutantsLevelsItem(
-                                  pollutant: 'S02',
-                                  value: '21',
-                                ),
-                                PollutantsLevelsItem(
-                                  pollutant: 'NO2',
-                                  value: '21',
-                                ),
-                                const SizedBox(height: 20),
-                                SizedBox(
-                                  width: double.infinity,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          kLightHighlightGreenColor,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.of(
-                                        context,
-                                      ).pop(); // يقفل الكارد
-                                    },
-                                    child: Text(
-                                      'Close',
-                                      style: TextStyle(
-                                        color: klightGreenTextColor,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
+                        return PredictionDetailesView(pollution: pollution, date: date, prediction: prediction,);
                       },
                     );
                   },
