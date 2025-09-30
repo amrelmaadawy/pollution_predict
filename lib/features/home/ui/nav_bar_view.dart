@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
+import 'package:pollution/features/history/ui/history_view.dart';
 import 'package:pollution/features/home/ui/custom_nav_bar.dart';
 import 'package:pollution/features/air_quality_map/UI/air_quality_map_view.dart';
 import 'package:pollution/features/home/ui/home.dart';
@@ -19,10 +20,10 @@ class _NavBarViewState extends State<NavBarView> {
   late List<String> appBarsTitle = [
     S.of(context).airQuality,
     S.of(context).AirQualityMap,
-
+    'History',
     S.of(context).Setting,
   ];
-  List<Widget> pages = [Home(), AirQualityMapView(), SettingView()];
+  List<Widget> pages = [Home(), AirQualityMapView(),HistoryView(), SettingView()];
   int currentIndex = 0;
 
   @override
