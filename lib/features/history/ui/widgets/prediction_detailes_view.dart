@@ -92,7 +92,7 @@ class PredictionDetailesView extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop(); // يقفل الكارد
+                  Navigator.of(context).pop(); 
                 },
                 child: Text(
                   'Close',

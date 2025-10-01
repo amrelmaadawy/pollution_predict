@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
+import 'package:pollution/core/hive/hive_service.dart';
 import 'package:pollution/core/time_formatte.dart';
 import 'package:pollution/features/history/ui/widgets/prediction_detailes_view.dart';
 
 class PredictionItem extends StatelessWidget {
-  const PredictionItem({super.key, required this.date, required this.prediction, required this.pollution});
+  const PredictionItem({
+    super.key,
+    required this.date,
+    required this.prediction,
+    required this.pollution, required this.index,
+  });
   final String date;
   final String prediction;
   final Map<String, double> pollution;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -49,7 +56,11 @@ class PredictionItem extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (context) {
-                        return PredictionDetailesView(pollution: pollution, date: date, prediction: prediction,);
+                        return PredictionDetailesView(
+                          pollution: pollution,
+                          date: date,
+                          prediction: prediction,
+                        );
                       },
                     );
                   },
@@ -62,9 +73,14 @@ class PredictionItem extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 5),
-                CircleAvatar(
-                  backgroundColor: kLightHighlightRedColor,
-                  child: Icon(Icons.delete_outline, color: kRedTextColor),
+                GestureDetector(
+                  onTap: () {
+                    deletePrediction(index);
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: kLightHighlightRedColor,
+                    child: Icon(Icons.delete_outline, color: kRedTextColor),
+                  ),
                 ),
               ],
             ),

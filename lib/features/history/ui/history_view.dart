@@ -9,10 +9,12 @@ class HistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final box = Hive.box<PredictionModel>('pollutionBox');
-    final predictions = box.values.toList();
     return ValueListenableBuilder(
+      
       valueListenable: box.listenable(),
       builder: (BuildContext context, value, Widget? child) {
+            final predictions = box.values.toList().reversed.toList();
+
         return Padding(
           padding: const EdgeInsets.all(10.0),
           child: predictions.isEmpty
@@ -36,6 +38,7 @@ class HistoryView extends StatelessWidget {
                             pollution: Map<String, double>.from(
                               item.pollutants,
                             ),
+                            index: index,
                           );
                         },
                         separatorBuilder: (context, index) =>

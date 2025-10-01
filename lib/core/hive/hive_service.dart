@@ -1,17 +1,13 @@
 import 'package:hive/hive.dart';
+import 'package:pollution/core/model/prediction_model.dart';
 
-final box = Hive.box('pollutionBox');
+final box = Hive.box<PredictionModel>('pollutionBox');
 
-void savePrediction({
-  required String date,
-  required String prediction,
-  required Map<String, double> pollutants,
-}) {
-  final data = {
-    "date": date,
-    "prediction": prediction,
-    "pollutants": pollutants,
-  };
 
-  box.add(data); // add بيضيف Object جديد
+
+
+Future<void> deletePrediction(int index) async {
+            final originalIndex = box.length - 1 - index;
+
+  await box.deleteAt(originalIndex); 
 }
