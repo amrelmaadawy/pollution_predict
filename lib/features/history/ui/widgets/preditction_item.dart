@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/core/hive/hive_service.dart';
+import 'package:pollution/core/prediction_status.dart';
 import 'package:pollution/core/time_formatte.dart';
 import 'package:pollution/features/history/ui/widgets/prediction_detailes_view.dart';
 
@@ -9,7 +10,8 @@ class PredictionItem extends StatelessWidget {
     super.key,
     required this.date,
     required this.prediction,
-    required this.pollution, required this.index,
+    required this.pollution,
+    required this.index,
   });
   final String date;
   final String prediction;
@@ -31,11 +33,12 @@ class PredictionItem extends StatelessWidget {
                     children: [
                       Text('Prediction:', style: TextStyle(fontSize: 18)),
                       const SizedBox(width: 5),
+                      getPredictionStatus(double.parse(prediction)),
                       Text(
-                        'Good [$prediction]',
+                        ' [$prediction]',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: klightGreenTextColor,
+                          color: kSubTextColor,
                           fontSize: 18,
                         ),
                       ),

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
+import 'package:pollution/core/prediction_status.dart';
 import 'package:pollution/core/time_formatte.dart';
 import 'package:pollution/features/history/ui/widgets/pollutants_levels_item.dart';
 
 class PredictionDetailesView extends StatelessWidget {
-  const PredictionDetailesView({super.key, required this.pollution, required this.date, required this.prediction});
+  const PredictionDetailesView({
+    super.key,
+    required this.pollution,
+    required this.date,
+    required this.prediction,
+  });
   final Map<String, double> pollution;
   final String date;
   final String prediction;
@@ -60,14 +66,15 @@ class PredictionDetailesView extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                Text(
-                  'Good [$prediction]',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: klightGreenTextColor,
-                  ),
-                ),
+                getPredictionStatus(double.parse(prediction)),
+                // Text(
+                //   '[$prediction]',
+                //   style: TextStyle(
+                //     fontSize: 16,
+                //     fontWeight: FontWeight.bold,
+                //     color: klightGreenTextColor,
+                //   ),
+                // ),
               ],
             ),
             Divider(),
@@ -76,11 +83,20 @@ class PredictionDetailesView extends StatelessWidget {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
-            PollutantsLevelsItem(pollutant: 'PM10', value: '${pollution['pm10']}'),
+            PollutantsLevelsItem(
+              pollutant: 'PM10',
+              value: '${pollution['pm10']}',
+            ),
             PollutantsLevelsItem(pollutant: 'Co', value: '${pollution['co']}'),
             PollutantsLevelsItem(pollutant: 'O3', value: '${pollution['o3']}'),
-            PollutantsLevelsItem(pollutant: 'So2', value: '${pollution['so2']}'),
-            PollutantsLevelsItem(pollutant: 'NO2', value: '${pollution['no2']}'),
+            PollutantsLevelsItem(
+              pollutant: 'So2',
+              value: '${pollution['so2']}',
+            ),
+            PollutantsLevelsItem(
+              pollutant: 'NO2',
+              value: '${pollution['no2']}',
+            ),
             const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
@@ -92,7 +108,7 @@ class PredictionDetailesView extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop(); 
+                  Navigator.of(context).pop();
                 },
                 child: Text(
                   'Close',

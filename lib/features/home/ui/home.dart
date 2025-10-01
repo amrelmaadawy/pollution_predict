@@ -1,98 +1,116 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pollution/core/app_colors.dart';
+import 'package:pollution/core/model/prediction_model.dart';
+import 'package:pollution/core/prediction_status.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final box = Hive.box<PredictionModel>('pollutionBox');
+
     return Padding(
       padding: const EdgeInsets.all(15.0),
-      child: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            height: 200,
-            decoration: BoxDecoration(
-              color: kLightHighlightGreenColor,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
+      child: ValueListenableBuilder(
+        valueListenable: box.listenable(),
+        builder: (context, Box<PredictionModel> box, _) {
+          if (box.isEmpty) {
+            return const Center(
+              child: Text(
+                "No predictions yet",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            );
+          }
+
+          // آخر قيمة محفوظة
+          final lastPrediction = box.getAt(box.length - 1)!;
+
+          return Column(
+            children: [
+              Container(
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: kLightHighlightGreenColor,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(Icons.air, color: klightGreenTextColor, size: 60),
-                      SizedBox(width: 10),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.air,
+                            color: klightGreenTextColor,
+                            size: 60,
+                          ),
+                          const SizedBox(width: 10),
+                          const Text(
+                            'Last Prediction',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                       Text(
-                        'Last Prediction',
+                        lastPrediction.prediction, // هنا النتيجة
                         style: TextStyle(
-                          fontSize: 22,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ],
-                  ),
-                  Text(
-                    '55',
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: klightGreenTextColor,
-                    ),
-                  ),
-                  Text(
-                    'Predicted AQI',
-                    style: TextStyle(color: kSubTextColor, fontSize: 17),
-                  ),
-                  Text(
-                    'Good',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: klightGreenTextColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
-          Container(
-            decoration: BoxDecoration(
-              color: kLightHighlightGreenColor,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Icon(
-                    Icons.health_and_safety_outlined,
-                    color: klightGreenTextColor,
-                    size: 40,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Health Tips',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      const Text(
+                        'Predicted AQI',
+                        style: TextStyle(color: Colors.black54, fontSize: 17),
                       ),
-                      Text('Stay indoors and avoid outdoor activities.'),
+                      getPredictionStatus(double.parse( lastPrediction.prediction)),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
-        ],
+              const SizedBox(height: 20),
+              Container(
+                decoration: BoxDecoration(
+                  color: kLightHighlightGreenColor,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.health_and_safety_outlined,
+                        color: Colors.green,
+                        size: 40,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Health Tips',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text('Stay indoors and avoid outdoor activities.'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

@@ -8,3 +8,11 @@ Future<void> deletePrediction(int index) async {
 
   await box.deleteAt(originalIndex);
 }
+
+Future<PredictionModel?> getLastPrediction() async {
+  final box = Hive.box<PredictionModel>('pollutionBox');
+
+  if (box.isEmpty) return null; // لو فاضي
+
+  return box.getAt(box.length - 1); // آخر عنصر
+}
