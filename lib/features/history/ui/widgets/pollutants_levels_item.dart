@@ -7,11 +7,13 @@ class PollutantsLevelsItem extends StatelessWidget {
   final String value;
   @override
   Widget build(BuildContext context) {
+        final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Row(
       children: [
-        Text(pollutant, style: TextStyle(fontSize: 15, color: kSubTextColor)),
+        Text(pollutant, style: TextStyle(fontSize: 15, color:isDark?kDarkSubTextColor :kSubTextColor)),
         Spacer(),
-        Text(value, style: TextStyle(fontSize: 15, color: kSubTextColor)),
+        Text(value, style: TextStyle(fontSize: 15, color:isDark?kDarkSubTextColor: kSubTextColor)),
       ],
     );
   }

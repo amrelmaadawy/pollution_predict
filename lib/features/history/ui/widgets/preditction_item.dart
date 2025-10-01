@@ -19,6 +19,8 @@ class PredictionItem extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -38,7 +40,7 @@ class PredictionItem extends StatelessWidget {
                         ' [$prediction]',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: kSubTextColor,
+                          color: isDark ? kDarkSubTextColor : kSubTextColor,
                           fontSize: 18,
                         ),
                       ),
@@ -47,7 +49,10 @@ class PredictionItem extends StatelessWidget {
                   Text(
                     'Pollutants: PM10:${pollution['pm10']}, NO2:${pollution['no2']}, SO2:${pollution['so2']}, CO:${pollution['co']}, O3:${pollution['o3']}',
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 15, color: kSubTextColor),
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: isDark ? kDarkSubTextColor : kSubTextColor,
+                    ),
                   ),
                 ],
               ),
@@ -68,10 +73,14 @@ class PredictionItem extends StatelessWidget {
                     );
                   },
                   child: CircleAvatar(
-                    backgroundColor: kLightHighlightGreenColor,
+                    backgroundColor: isDark
+                        ? kDarkHighlightGreenColor
+                        : kLightHighlightGreenColor,
                     child: Icon(
                       Icons.remove_red_eye_outlined,
-                      color: klightGreenTextColor,
+                      color: isDark
+                          ? kDarkTextGreenColor
+                          : klightGreenTextColor,
                     ),
                   ),
                 ),
@@ -81,8 +90,13 @@ class PredictionItem extends StatelessWidget {
                     deletePrediction(index);
                   },
                   child: CircleAvatar(
-                    backgroundColor: kLightHighlightRedColor,
-                    child: Icon(Icons.delete_outline, color: kRedTextColor),
+                    backgroundColor: isDark
+                        ? kDarkHighlightRedColor
+                        : kLightHighlightRedColor,
+                    child: Icon(
+                      Icons.delete_outline,
+                      color: isDark ? kDarkRedTextColor : kRedTextColor,
+                    ),
                   ),
                 ),
               ],
