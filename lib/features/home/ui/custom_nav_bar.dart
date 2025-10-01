@@ -47,9 +47,9 @@ class CustomNavBar extends StatelessWidget {
           selectedIndex: selectedIndex,
           onTabChange: onTabChange,
           tabs: [
-            GButton(icon: Icons.home_outlined, text: 'Home'),
+            GButton(icon: Icons.home_outlined, text: S.of(context).Home),
             GButton(icon: Icons.map_outlined, text: S.of(context).Map),
-            GButton(icon: Icons.history, text: 'History'),
+            GButton(icon: Icons.history, text: S.of(context).History),
             GButton(icon: Icons.settings_outlined, text: S.of(context).Setting),
           ],
         ),

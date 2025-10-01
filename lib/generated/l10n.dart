@@ -218,6 +218,141 @@ class S {
   String get Map {
     return Intl.message('Map', name: 'Map', desc: '', args: []);
   }
+
+  /// `Unhealthy (Sensitive Groups)`
+  String get UnhealthySensitiveGroups {
+    return Intl.message(
+      'Unhealthy (Sensitive Groups)',
+      name: 'UnhealthySensitiveGroups',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Very Unhealthy`
+  String get VeryUnhealthy {
+    return Intl.message(
+      'Very Unhealthy',
+      name: 'VeryUnhealthy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hazardous`
+  String get Hazardous {
+    return Intl.message('Hazardous', name: 'Hazardous', desc: '', args: []);
+  }
+
+  /// `AM`
+  String get AM {
+    return Intl.message('AM', name: 'AM', desc: '', args: []);
+  }
+
+  /// `PM`
+  String get PM {
+    return Intl.message('PM', name: 'PM', desc: '', args: []);
+  }
+
+  /// `No predictions saved yet.`
+  String get Nopredictionssavedyet {
+    return Intl.message(
+      'No predictions saved yet.',
+      name: 'Nopredictionssavedyet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get Home {
+    return Intl.message('Home', name: 'Home', desc: '', args: []);
+  }
+
+  /// `History`
+  String get History {
+    return Intl.message('History', name: 'History', desc: '', args: []);
+  }
+
+  /// `No Prediction Yet`
+  String get NoPredictionYet {
+    return Intl.message(
+      'No Prediction Yet',
+      name: 'NoPredictionYet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last Prediction`
+  String get LastPrediction {
+    return Intl.message(
+      'Last Prediction',
+      name: 'LastPrediction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Predicted AQI`
+  String get PredictedAQI {
+    return Intl.message(
+      'Predicted AQI',
+      name: 'PredictedAQI',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Health Tips`
+  String get HealthTips {
+    return Intl.message('Health Tips', name: 'HealthTips', desc: '', args: []);
+  }
+
+  /// `Stay indoors and avoid outdoor activities`
+  String get Stayindoorsandavoidoutdooractivities {
+    return Intl.message(
+      'Stay indoors and avoid outdoor activities',
+      name: 'Stayindoorsandavoidoutdooractivities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Air Quality Data`
+  String get EnterAirQuailtyData {
+    return Intl.message(
+      'Enter Air Quality Data',
+      name: 'EnterAirQuailtyData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This Field is Required`
+  String get ThisFieldisRequired {
+    return Intl.message(
+      'This Field is Required',
+      name: 'ThisFieldisRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Predict Air Quality Index`
+  String get PredictAirQualityIndex {
+    return Intl.message(
+      'Predict Air Quality Index',
+      name: 'PredictAirQualityIndex',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Predict`
+  String get Predict {
+    return Intl.message('Predict', name: 'Predict', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

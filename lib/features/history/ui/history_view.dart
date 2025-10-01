@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pollution/core/model/prediction_model.dart';
 import 'package:pollution/features/history/ui/widgets/preditction_item.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class HistoryView extends StatelessWidget {
   const HistoryView({super.key});
@@ -17,9 +18,9 @@ class HistoryView extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(10.0),
           child: predictions.isEmpty
-              ? const Center(
+              ?  Center(
                   child: Text(
-                    "No predictions saved yet.",
+                    S.of(context).Nopredictionssavedyet,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 )

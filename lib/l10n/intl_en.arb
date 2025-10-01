@@ -51,7 +51,43 @@
      "Dashboard":"Dashboard",
     "@Dashboard":{},
     "Map":"Map",
-    "@Map":{}
-   
+    "@Map":{},
+    "UnhealthySensitiveGroups":"Unhealthy (Sensitive Groups)",
+    "@UnhealthySensitiveGroups":{},
+    "VeryUnhealthy":"Very Unhealthy",
+    "@VeryUnhealthy":{},
+    "Hazardous":"Hazardous",
+    "@Hazardous":{},
+    "AM":"AM",
+    "@AM":{},
+    "PM":"PM",
+    "@PM":{},
+    "Nopredictionssavedyet":"No predictions saved yet.",
+    "@Nopredictionssavedyet":{},
+    "Home":"Home",
+    "@Home":{},
+    "History":"History",
+    "@History":{},
+    "NoPredictionYet":"No Prediction Yet",
+    "@NoPredictionYet":{},
+    "LastPrediction":"Last Prediction",
+    "@LastPrediction":{},
+    "PredictedAQI":"Predicted AQI",
+    "@PredictedAQI":{},
+    "HealthTips":"Health Tips",
+    "@HealthTips":{},
+     "Stayindoorsandavoidoutdooractivities":"Stay indoors and avoid outdoor activities",
+    "@Stayindoorsandavoidoutdooractivities":{},
+    "EnterAirQuailtyData":"Enter Air Quality Data",
+    "@EnterAirQuailtyData":{},
+    "ThisFieldisRequired":"This Field is Required",
+    "@ThisFieldisRequired":{},
+    "PredictAirQualityIndex":"Predict Air Quality Index",
+    "@PredictAirQualityIndex":{},
+    "Predict":"Predict",
+    "@Predict":{}
+    
+
+
 
 }

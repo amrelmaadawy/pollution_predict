@@ -45,7 +45,7 @@ class PredictionDetailesView extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      formatDateTime(date),
+                      formatDateTime(date,context),
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,

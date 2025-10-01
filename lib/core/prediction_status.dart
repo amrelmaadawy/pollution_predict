@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
+import 'package:pollution/generated/l10n.dart';
 
 Widget getPredictionStatus(double prediction, BuildContext context) {
   final isDark = Theme.of(context).brightness == Brightness.dark;
 
   if (prediction <= 50) {
     return Text(
-      "Good",
+      S.of(context).good,
       style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -15,7 +16,7 @@ Widget getPredictionStatus(double prediction, BuildContext context) {
     );
   } else if (prediction <= 100) {
     return Text(
-      "Moderate",
+      S.of(context).moderate,
       style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -24,7 +25,7 @@ Widget getPredictionStatus(double prediction, BuildContext context) {
     );
   } else if (prediction <= 150) {
     return Text(
-      "Unhealthy (Sensitive Groups)",
+      S.of(context).UnhealthySensitiveGroups,
       style: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.bold,
@@ -33,7 +34,7 @@ Widget getPredictionStatus(double prediction, BuildContext context) {
     );
   } else if (prediction <= 200) {
     return Text(
-      "Unhealthy",
+      S.of(context).unhealthy,
       style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -42,7 +43,7 @@ Widget getPredictionStatus(double prediction, BuildContext context) {
     );
   } else if (prediction <= 300) {
     return Text(
-      "Very Unhealthy",
+      S.of(context).VeryUnhealthy,
       style: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -51,7 +52,7 @@ Widget getPredictionStatus(double prediction, BuildContext context) {
     );
   } else {
     return Text(
-      "Hazardous",
+      S.of(context).Hazardous,
       style: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,

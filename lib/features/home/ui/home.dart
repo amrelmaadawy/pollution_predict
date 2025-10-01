@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/core/model/prediction_model.dart';
 import 'package:pollution/core/prediction_status.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -18,9 +19,9 @@ class Home extends StatelessWidget {
         valueListenable: box.listenable(),
         builder: (context, Box<PredictionModel> box, _) {
           if (box.isEmpty) {
-            return const Center(
+            return  Center(
               child: Text(
-                "No predictions yet",
+                S.of(context).NoPredictionYet,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             );
@@ -55,8 +56,8 @@ class Home extends StatelessWidget {
                             size: 60,
                           ),
                           const SizedBox(width: 10),
-                          const Text(
-                            'Last Prediction',
+                           Text(
+                            S.of(context).LastPrediction,
                             style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
@@ -72,7 +73,7 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Predicted AQI',
+                        S.of(context).PredictedAQI,
                         style: TextStyle(
                           color: isDark ? Colors.white : Colors.black54,
                           fontSize: 17,
@@ -110,7 +111,7 @@ class Home extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Health Tips',
+                            S.of(context).HealthTips,
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,

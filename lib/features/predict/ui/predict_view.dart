@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/features/predict/logic/cubit/predict_cubit.dart';
 import 'package:pollution/features/predict/ui/widgets/custom_text_form_field.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class PredictView extends StatefulWidget {
   const PredictView({super.key});
@@ -31,7 +32,7 @@ class _PredictViewState extends State<PredictView> {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          'Predict Air Quality Index',
+          '',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -48,7 +49,7 @@ class _PredictViewState extends State<PredictView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Enter Air Quality Data',
+                        S.of(context).EnterAirQuailtyData,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -61,7 +62,7 @@ class _PredictViewState extends State<PredictView> {
                         labelText: 'PM10',
                         validator: (p1) {
                           if (p1!.isEmpty) {
-                            return 'This Field is Required';
+                            return S.of(context).ThisFieldisRequired;
                           }
                           return null;
                         },
@@ -74,7 +75,7 @@ class _PredictViewState extends State<PredictView> {
                         labelText: 'NO2',
                         validator: (p1) {
                           if (p1!.isEmpty) {
-                            return 'This Field is Required';
+                            return S.of(context).ThisFieldisRequired;
                           }
                           return null;
                         },
@@ -87,7 +88,7 @@ class _PredictViewState extends State<PredictView> {
                         labelText: 'SO2',
                         validator: (p1) {
                           if (p1!.isEmpty) {
-                            return 'This Field is Required';
+                            return S.of(context).ThisFieldisRequired;
                           }
                           return null;
                         },
@@ -100,7 +101,7 @@ class _PredictViewState extends State<PredictView> {
                         labelText: 'CO',
                         validator: (p1) {
                           if (p1!.isEmpty) {
-                            return 'This Field is Required';
+                            return S.of(context).ThisFieldisRequired;
                           }
                           return null;
                         },
@@ -113,7 +114,7 @@ class _PredictViewState extends State<PredictView> {
                         labelText: 'O3',
                         validator: (p1) {
                           if (p1!.isEmpty) {
-                            return 'This Field is Required';
+                            return S.of(context).ThisFieldisRequired;
                           }
                           return null;
                         },
@@ -122,11 +123,11 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: tempController,
-                        text: 'Temprature',
-                        labelText: 'Temprature',
+                        text:S.of(context).Temperature,
+                        labelText:S.of(context).Temperature,
                         validator: (p1) {
                           if (p1!.isEmpty) {
-                            return 'This Field is Required';
+                            return S.of(context).ThisFieldisRequired;
                           }
                           return null;
                         },
@@ -136,11 +137,11 @@ class _PredictViewState extends State<PredictView> {
 
                       CustomTextFormField(
                         controller: windController,
-                        text: 'Wind Speed',
-                        labelText: 'Wind Speed',
+                        text: S.of(context).Wind,
+                        labelText: S.of(context).Wind,
                         validator: (p1) {
                           if (p1!.isEmpty) {
-                            return 'This Field is Required';
+                            return S.of(context).ThisFieldisRequired;
                           }
                           return null;
                         },
@@ -149,11 +150,11 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: humdintyController,
-                        text: 'Humdinty',
-                        labelText: 'Humidity',
+                        text: S.of(context).Humidity,
+                        labelText: S.of(context).Humidity,
                         validator: (p1) {
                           if (p1!.isEmpty) {
-                            return 'This Field is Required';
+                            return S.of(context).ThisFieldisRequired;
                           }
                           return null;
                         },
@@ -184,7 +185,7 @@ class _PredictViewState extends State<PredictView> {
                           Navigator.pop(context);
                         },
                         child: Text(
-                          'Predict',
+                          S.of(context).Predict,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,

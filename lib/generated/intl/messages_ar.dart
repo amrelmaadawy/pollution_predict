@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "AM": MessageLookupByLibrary.simpleMessage("ص"),
     "AirQualityIndexAQIForecast": MessageLookupByLibrary.simpleMessage(
       "توقع مؤشر جودة الهواء (AQI)",
     ),
@@ -35,14 +36,45 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "DarkMode": MessageLookupByLibrary.simpleMessage("الوضع الداكن"),
     "Dashboard": MessageLookupByLibrary.simpleMessage("لوحة التحكم"),
+    "EnterAirQuailtyData": MessageLookupByLibrary.simpleMessage(
+      "أدخل بيانات جودة الهواء",
+    ),
+    "Hazardous": MessageLookupByLibrary.simpleMessage("خطير"),
+    "HealthTips": MessageLookupByLibrary.simpleMessage("نصائح صحية"),
+    "History": MessageLookupByLibrary.simpleMessage("السجل"),
+    "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "Humidity": MessageLookupByLibrary.simpleMessage("الرطوبة"),
     "Language": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "LastPrediction": MessageLookupByLibrary.simpleMessage("آخر توقع"),
     "Map": MessageLookupByLibrary.simpleMessage("الخريطة"),
     "Next7Days": MessageLookupByLibrary.simpleMessage("الأيام السبعة القادمة"),
+    "NoPredictionYet": MessageLookupByLibrary.simpleMessage("لا يوجد توقع بعد"),
+    "Nopredictionssavedyet": MessageLookupByLibrary.simpleMessage(
+      "لا توجد توقعات محفوظة بعد.",
+    ),
+    "PM": MessageLookupByLibrary.simpleMessage("م"),
     "PollutantDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الملوثات"),
+    "Predict": MessageLookupByLibrary.simpleMessage("توقع"),
+    "PredictAirQualityIndex": MessageLookupByLibrary.simpleMessage(
+      "توقع مؤشر جودة الهواء",
+    ),
+    "PredictedAQI": MessageLookupByLibrary.simpleMessage(
+      "مؤشر جودة الهواء المتوقع",
+    ),
     "Setting": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "Stayindoorsandavoidoutdooractivities":
+        MessageLookupByLibrary.simpleMessage(
+          "ابقَ في الداخل وتجنب الأنشطة الخارجية",
+        ),
     "Temperature": MessageLookupByLibrary.simpleMessage("درجة الحرارة"),
+    "ThisFieldisRequired": MessageLookupByLibrary.simpleMessage(
+      "هذا الحقل مطلوب",
+    ),
     "Today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "UnhealthySensitiveGroups": MessageLookupByLibrary.simpleMessage(
+      "غير صحي (للمجموعات الحساسة)",
+    ),
+    "VeryUnhealthy": MessageLookupByLibrary.simpleMessage("غير صحي جدًا"),
     "ViewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "WeatherConditions": MessageLookupByLibrary.simpleMessage("الظروف الجوية"),
     "Wind": MessageLookupByLibrary.simpleMessage("الرياح"),
