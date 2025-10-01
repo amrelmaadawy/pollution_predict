@@ -10,6 +10,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final box = Hive.box<PredictionModel>('pollutionBox');
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Padding(
       padding: const EdgeInsets.all(15.0),
@@ -34,7 +35,9 @@ class Home extends StatelessWidget {
                 width: double.infinity,
                 height: 200,
                 decoration: BoxDecoration(
-                  color: kLightHighlightGreenColor,
+                  color: isDark
+                      ? kDarkHighlightGreenColor
+                      : kLightHighlightGreenColor,
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Padding(
@@ -46,7 +49,9 @@ class Home extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.air,
-                            color: klightGreenTextColor,
+                            color: isDark
+                                ? kDarkTextGreenColor
+                                : klightGreenTextColor,
                             size: 60,
                           ),
                           const SizedBox(width: 10),
@@ -66,11 +71,16 @@ class Home extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Predicted AQI',
-                        style: TextStyle(color: Colors.black54, fontSize: 17),
+                        style: TextStyle(
+                          color: isDark ? Colors.white : Colors.black54,
+                          fontSize: 17,
+                        ),
                       ),
-                      getPredictionStatus(double.parse( lastPrediction.prediction)),
+                      getPredictionStatus(
+                        double.parse(lastPrediction.prediction),
+                      ),
                     ],
                   ),
                 ),
@@ -78,17 +88,21 @@ class Home extends StatelessWidget {
               const SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
-                  color: kLightHighlightGreenColor,
+                  color: isDark
+                      ? kDarkHighlightGreenColor
+                      : kLightHighlightGreenColor,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.all(15.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Icon(
                         Icons.health_and_safety_outlined,
-                        color: Colors.green,
+                        color: isDark
+                            ? kDarkTextGreenColor
+                            : klightGreenTextColor,
                         size: 40,
                       ),
                       Column(

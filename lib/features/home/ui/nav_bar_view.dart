@@ -23,11 +23,18 @@ class _NavBarViewState extends State<NavBarView> {
     'History',
     S.of(context).Setting,
   ];
-  List<Widget> pages = [Home(), AirQualityMapView(),HistoryView(), SettingView()];
+  List<Widget> pages = [
+    Home(),
+    AirQualityMapView(),
+    HistoryView(),
+    SettingView(),
+  ];
   int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -36,8 +43,10 @@ class _NavBarViewState extends State<NavBarView> {
             MaterialPageRoute(builder: (context) => PredictView()),
           );
         },
-        backgroundColor: kLightHighlightGreenColor,
-        child: Icon(Icons.add, color: Colors.black),
+        backgroundColor: isDark
+            ? kDarkHighlightGreenColor
+            : kLightHighlightGreenColor,
+        child: Icon(Icons.add, color: isDark ? Colors.white : Colors.black),
       ),
       bottomNavigationBar: CustomNavBar(
         selectedIndex: currentIndex,
@@ -48,11 +57,9 @@ class _NavBarViewState extends State<NavBarView> {
         },
       ),
       appBar: AppBar(
-        backgroundColor: Theme.of(
-          context,
-        ).scaffoldBackgroundColor, 
-        surfaceTintColor: Colors.transparent, 
-        elevation: 0, 
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
         title: Text(
           appBarsTitle[currentIndex],
           style: const TextStyle(fontWeight: FontWeight.bold),
