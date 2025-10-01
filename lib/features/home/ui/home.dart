@@ -80,6 +80,7 @@ class Home extends StatelessWidget {
                       ),
                       getPredictionStatus(
                         double.parse(lastPrediction.prediction),
+                        context,
                       ),
                     ],
                   ),

@@ -68,7 +68,7 @@ class PredictionDetailesView extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                getPredictionStatus(double.parse(prediction)),
+                getPredictionStatus(double.parse(prediction),context),
                 // Text(
                 //   '[$prediction]',
                 //   style: TextStyle(

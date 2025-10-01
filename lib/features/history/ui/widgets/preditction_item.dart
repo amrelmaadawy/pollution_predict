@@ -35,7 +35,7 @@ class PredictionItem extends StatelessWidget {
                     children: [
                       Text('Prediction:', style: TextStyle(fontSize: 18)),
                       const SizedBox(width: 5),
-                      getPredictionStatus(double.parse(prediction)),
+                      getPredictionStatus(double.parse(prediction),context),
                       Text(
                         ' [$prediction]',
                         style: TextStyle(
