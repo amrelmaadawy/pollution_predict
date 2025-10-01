@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pollution/core/app_colors.dart';
-import 'package:pollution/generated/l10n.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -21,25 +20,40 @@ class Home extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(Icons.air, color: klightGreenTextColor, size: 60),
-                  Text(
-                    S.of(context).AirQualityIndexAQIForecast,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  Row(
+                    children: [
+                      Icon(Icons.air, color: klightGreenTextColor, size: 60),
+                      SizedBox(width: 10),
+                      Text(
+                        'Last Prediction',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                   Text(
                     '55',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: klightGreenTextColor,
                     ),
                   ),
                   Text(
-                    S.of(context).good,
+                    'Predicted AQI',
                     style: TextStyle(color: kSubTextColor, fontSize: 17),
+                  ),
+                  Text(
+                    'Good',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: klightGreenTextColor,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
