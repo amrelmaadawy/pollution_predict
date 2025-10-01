@@ -20,6 +20,8 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -29,12 +31,12 @@ class CustomTextFormField extends StatelessWidget {
           controller: controller,
           validator: validator,
           keyboardType: keyboardType,
-          cursorColor: klightGreenTextColor,
+          cursorColor: isDark ? kDarkTextGreenColor : klightGreenTextColor,
           decoration: InputDecoration(
             suffixIcon: suffixIcon,
             labelText: labelText,
             labelStyle: TextStyle(
-              color: kSubTextColor,
+              color: isDark ? kDarkSubTextColor : kSubTextColor,
               fontWeight: FontWeight.w500,
             ),
             filled: true,
@@ -45,11 +47,15 @@ class CustomTextFormField extends StatelessWidget {
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: kSubTextColor),
+              borderSide: BorderSide(
+                color: isDark ? kDarkSubTextColor : kSubTextColor,
+              ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.white),
+              borderSide: BorderSide(
+                color: isDark ? Colors.black : Colors.white,
+              ),
             ),
           ),
         ),

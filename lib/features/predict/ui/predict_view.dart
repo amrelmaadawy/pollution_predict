@@ -23,6 +23,8 @@ class _PredictViewState extends State<PredictView> {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -160,7 +162,9 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 20),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: kLightHighlightGreenColor,
+                          backgroundColor: isDark
+                              ? kDarkHighlightGreenColor
+                              : kLightHighlightGreenColor,
                           minimumSize: Size(double.infinity, 50),
                         ),
                         onPressed: () async {
@@ -184,7 +188,9 @@ class _PredictViewState extends State<PredictView> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: klightGreenTextColor,
+                            color: isDark
+                                ? kDarkTextGreenColor
+                                : klightGreenTextColor,
                           ),
                         ),
                       ),
