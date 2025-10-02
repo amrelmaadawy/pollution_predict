@@ -31,12 +31,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "Air Quality Status",
     ),
     "Alerts": MessageLookupByLibrary.simpleMessage("Alerts"),
+    "CalculatingAQI": MessageLookupByLibrary.simpleMessage(
+      "Calculating AQI...",
+    ),
+    "Citynotfound": MessageLookupByLibrary.simpleMessage("City not found"),
     "CurrentAQI": MessageLookupByLibrary.simpleMessage("Current AQI"),
     "DarkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "Dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
     "EnterAirQuailtyData": MessageLookupByLibrary.simpleMessage(
       "Enter Air Quality Data",
     ),
+    "Error": MessageLookupByLibrary.simpleMessage("Error"),
     "Hazardous": MessageLookupByLibrary.simpleMessage("Hazardous"),
     "HealthTips": MessageLookupByLibrary.simpleMessage("Health Tips"),
     "History": MessageLookupByLibrary.simpleMessage("History"),
@@ -53,6 +58,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "No predictions saved yet.",
     ),
     "PM": MessageLookupByLibrary.simpleMessage("PM"),
+    "PleaseEnterCityName": MessageLookupByLibrary.simpleMessage(
+      "Please Enter City Name",
+    ),
     "PollutantDetails": MessageLookupByLibrary.simpleMessage(
       "Pollutant Details",
     ),
@@ -62,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "PredictedAQI": MessageLookupByLibrary.simpleMessage("Predicted AQI"),
     "Setting": MessageLookupByLibrary.simpleMessage("Settings"),
+    "Status": MessageLookupByLibrary.simpleMessage("Status"),
     "Stayindoorsandavoidoutdooractivities":
         MessageLookupByLibrary.simpleMessage(
           "Stay indoors and avoid outdoor activities",
@@ -87,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "hourForecast": MessageLookupByLibrary.simpleMessage("24-hour Forecast"),
     "keyIndicator": MessageLookupByLibrary.simpleMessage("Key Indicator"),
     "moderate": MessageLookupByLibrary.simpleMessage("Moderate"),
+    "searchCity": MessageLookupByLibrary.simpleMessage("search City"),
     "unhealthy": MessageLookupByLibrary.simpleMessage("Unhealthy"),
   };
 }

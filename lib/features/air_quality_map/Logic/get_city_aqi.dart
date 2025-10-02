@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:pollution/features/predict/logic/cubit/predict_cubit.dart';
+import 'package:pollution/generated/l10n.dart';
 
 Future<List<dynamic>> loadPollutionData() async {
     final String response = await rootBundle.loadString(
@@ -18,7 +19,7 @@ Future<List<dynamic>> loadPollutionData() async {
     if (cityName.trim().isEmpty) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text("Please enter a city name")));
+      ).showSnackBar( SnackBar(content: Text(S.of(context).PleaseEnterCityName)));
       return;
     }
 
@@ -31,7 +32,7 @@ Future<List<dynamic>> loadPollutionData() async {
     if (city == null) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text("City not found")));
+      ).showSnackBar( SnackBar(content: Text(S.of(context).Citynotfound)));
       return;
     }
 

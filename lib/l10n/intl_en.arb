@@ -85,7 +85,20 @@
     "PredictAirQualityIndex":"Predict Air Quality Index",
     "@PredictAirQualityIndex":{},
     "Predict":"Predict",
-    "@Predict":{}
+    "@Predict":{},
+    "searchCity":"search City",
+    "@searchCity":{},
+      "CalculatingAQI":"Calculating AQI...",
+    "@CalculatingAQI":{},
+    "Status":"Status",
+    "@Status":{},
+    "Error":"Error",
+    "@Error":{},
+     "PleaseEnterCityName":"Please Enter City Name",
+    "@PleaseEnterCityName":{},
+    "Citynotfound":"City not found",
+    "@Citynotfound":{}
+
     
 
 

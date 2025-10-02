@@ -353,6 +353,51 @@ class S {
   String get Predict {
     return Intl.message('Predict', name: 'Predict', desc: '', args: []);
   }
+
+  /// `search City`
+  String get searchCity {
+    return Intl.message('search City', name: 'searchCity', desc: '', args: []);
+  }
+
+  /// `Calculating AQI...`
+  String get CalculatingAQI {
+    return Intl.message(
+      'Calculating AQI...',
+      name: 'CalculatingAQI',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get Status {
+    return Intl.message('Status', name: 'Status', desc: '', args: []);
+  }
+
+  /// `Error`
+  String get Error {
+    return Intl.message('Error', name: 'Error', desc: '', args: []);
+  }
+
+  /// `Please Enter City Name`
+  String get PleaseEnterCityName {
+    return Intl.message(
+      'Please Enter City Name',
+      name: 'PleaseEnterCityName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City not found`
+  String get Citynotfound {
+    return Intl.message(
+      'City not found',
+      name: 'Citynotfound',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

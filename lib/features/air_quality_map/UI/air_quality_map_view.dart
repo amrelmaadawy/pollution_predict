@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:pollution/features/air_quality_map/Logic/get_city_aqi.dart';
 import 'package:pollution/features/air_quality_map/UI/widgets/present_city_aqi.dart';
 import 'package:pollution/features/predict/ui/widgets/custom_text_form_field.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class AirQualityMapView extends StatefulWidget {
   const AirQualityMapView({super.key});
@@ -63,7 +64,7 @@ class _AirQualityMapViewState extends State<AirQualityMapView> {
             ),
             controller: searchController,
             text: '',
-            labelText: 'Search City',
+            labelText: S.of(context).searchCity,
             validator: (p) {
               return null;
             },

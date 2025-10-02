@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pollution/features/air_quality_map/UI/widgets/build_info_box.dart';
 import 'package:pollution/features/predict/logic/cubit/predict_cubit.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class PresentCityAQI extends StatelessWidget {
   const PresentCityAQI({
@@ -18,7 +19,7 @@ class PresentCityAQI extends StatelessWidget {
       child: BlocBuilder<PredictCubit, PredictState>(
         builder: (context, state) {
           if (state is AQILoading) {
-            return buildInfoBox("Calculating AQI...", Colors.blue);
+            return buildInfoBox(S.of(context).CalculatingAQI, Colors.blue);
           } else if (state is AQISuccess) {
             final aqi = state.aqi;
     
@@ -26,22 +27,22 @@ class PresentCityAQI extends StatelessWidget {
             String status;
     
             if (aqi <= 50) {
-              status = "Good";
+              status = S.of(context).good;
               color = Colors.green;
             } else if (aqi <= 100) {
-              status = "Moderate";
+              status = S.of(context).moderate;
               color = Colors.orange;
             } else {
-              status = "Unhealthy";
+              status = S.of(context).unhealthy;
               color = Colors.red;
             }
     
             return buildInfoBox(
-              "Predicted AQI: ${aqi.toStringAsFixed(2)}\nStatus: $status",
+              "${S.of(context).PredictedAQI }: ${aqi.toStringAsFixed(2)}\n${S.of(context).Status}: $status",
               color,
             );
           } else if (state is AQIFailure) {
-            return buildInfoBox("Error: ${state.error}", Colors.red);
+            return buildInfoBox("${S.of(context).Error}: ${state.error}", Colors.red);
           }
           return const SizedBox.shrink();
         },
