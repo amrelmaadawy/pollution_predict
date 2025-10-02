@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pollution/generated/l10n.dart';
 
-String formatDateTime(String rawDate,BuildContext context) {
+String formatDateTime(String rawDate, BuildContext context) {
   final dateTime = DateTime.parse(rawDate);
 
   final date =

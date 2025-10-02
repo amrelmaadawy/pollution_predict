@@ -70,4 +70,79 @@ class PredictCubit extends Cubit<PredictState> {
       emit(PredictionError(e.toString()));
     }
   }
+
+  // Future<void> predictCityAQI(Map<String, dynamic> cityData) async {
+  //   emit(AQILoading());
+  //   try {
+  //     final response = await dio.post(
+  //       "http://10.0.2.2:5000/predict",
+  //       data: {
+  //         "pm10": toDouble(cityData["pm10"]),
+  //         "no2": toDouble(cityData["no2"]),
+  //         "so2": toDouble(cityData["so2"]),
+  //         "co": toDouble(cityData["co"]),
+  //         "o3": toDouble(cityData["o3"]),
+  //         "temperature": toDouble(cityData["temperature"]),
+  //         "humidity": toDouble(cityData["humidity"]),
+  //         "wind": toDouble(cityData["wind"]),
+  //       },
+  //     );
+
+  //     final aqi = response.data["aqi"]?.toDouble() ?? 0.0;
+  //     print(aqi);
+  //     print('✅ successssssssssssssssssssssssssssssssssssssssss');
+  //     emit(AQISuccess(aqi));
+  //   } catch (e) {
+  //     print('❌ Erorrrrrrrrrrrrrrrrrrrrrrrrrrrrr');
+  //     print(e);
+  //     emit(AQIFailure(e.toString()));
+  //   }
+  // }
+
+  double toDouble(dynamic value) {
+    if (value is String) {
+      return double.tryParse(value) ?? 0.0;
+    } else if (value is num) {
+      return value.toDouble();
+    } else {
+      return 0.0;
+    }
+  }
+
+    Future<void> predictCityAQI({
+   
+   required Map<String,dynamic> city,
+  }) async {
+     emit(AQILoading());
+    try {
+      final response = await dio.post(
+        "http://10.0.2.2:5000/predict", // للـ Emulator (Android).
+        // لو موبايل حقيقي: استبدل 10.0.2.2 بالـ IP بتاع جهازك.
+        data: {
+          "pm10": toDouble(city["pm10"]),
+          "no2": toDouble(city["no2"]),
+          "so2": toDouble(city["so2"]),
+          "co": toDouble(city["co"]),
+          "o3": toDouble(city["o3"]),
+          "temperature": toDouble(city["temperature"]),
+          "humidity": toDouble(city["humidity"]),
+          "wind": toDouble(city["wind"]),
+        },
+      );
+
+      final prediction = response.data["prediction"];
+    
+      if (kDebugMode) {
+        print('predicted successsssssssssssssssssssssssssssssssssssssss');
+        print(prediction);
+      }
+      emit(AQISuccess(prediction));
+    } catch (e) {
+      if (kDebugMode) {
+        print('Errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr');
+        print(e);
+      }
+      emit(AQIFailure(e.toString()));
+    }
+  }
 }

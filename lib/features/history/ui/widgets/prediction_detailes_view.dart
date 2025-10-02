@@ -16,7 +16,7 @@ class PredictionDetailesView extends StatelessWidget {
   final String prediction;
   @override
   Widget build(BuildContext context) {
-        final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -30,8 +30,13 @@ class PredictionDetailesView extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor:isDark?kDarkHighlightGreenColor: kLightHighlightGreenColor,
-                  child: Icon(Icons.air, color:isDark?kDarkTextGreenColor: klightGreenTextColor),
+                  backgroundColor: isDark
+                      ? kDarkHighlightGreenColor
+                      : kLightHighlightGreenColor,
+                  child: Icon(
+                    Icons.air,
+                    color: isDark ? kDarkTextGreenColor : klightGreenTextColor,
+                  ),
                 ),
                 SizedBox(width: 10),
                 Column(
@@ -45,11 +50,11 @@ class PredictionDetailesView extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      formatDateTime(date,context),
+                      formatDateTime(date, context),
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color:isDark? kDarkSubTextColor: kSubTextColor,
+                        color: isDark ? kDarkSubTextColor : kSubTextColor,
                       ),
                     ),
                   ],
@@ -64,11 +69,11 @@ class PredictionDetailesView extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: isDark?kDarkSubTextColor: kSubTextColor,
+                    color: isDark ? kDarkSubTextColor : kSubTextColor,
                   ),
                 ),
                 Spacer(),
-                getPredictionStatus(double.parse(prediction),context),
+                getPredictionStatus(double.parse(prediction), context),
                 // Text(
                 //   '[$prediction]',
                 //   style: TextStyle(
@@ -104,7 +109,9 @@ class PredictionDetailesView extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:isDark?kDarkHighlightGreenColor: kLightHighlightGreenColor,
+                  backgroundColor: isDark
+                      ? kDarkHighlightGreenColor
+                      : kLightHighlightGreenColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -115,7 +122,7 @@ class PredictionDetailesView extends StatelessWidget {
                 child: Text(
                   'Close',
                   style: TextStyle(
-                    color:isDark?kDarkTextGreenColor: klightGreenTextColor,
+                    color: isDark ? kDarkTextGreenColor : klightGreenTextColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

@@ -31,10 +31,7 @@ class _PredictViewState extends State<PredictView> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
-        title: Text(
-          '',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        title: Text('', style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
       ),
       body: Padding(
@@ -123,8 +120,8 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: tempController,
-                        text:S.of(context).Temperature,
-                        labelText:S.of(context).Temperature,
+                        text: S.of(context).Temperature,
+                        labelText: S.of(context).Temperature,
                         validator: (p1) {
                           if (p1!.isEmpty) {
                             return S.of(context).ThisFieldisRequired;
@@ -172,16 +169,16 @@ class _PredictViewState extends State<PredictView> {
                           if (!formKey.currentState!.validate()) {
                             return;
                           }
-                          await context.read<PredictCubit>().getPrediction(
-                            pm10: double.parse(pm10Controller.text),
-                            no2: double.parse(no2Controller.text),
-                            so2: double.parse(so2Controller.text),
-                            co: double.parse(coController.text),
-                            o3: double.parse(o3Controller.text),
-                            temperature: double.parse(tempController.text),
-                            humidity: double.parse(humdintyController.text),
-                            wind: double.parse(windController.text),
-                          );
+                          // await context.read<PredictCubit>().getPrediction(
+                          //   pm10: double.parse(pm10Controller.text),
+                          //   no2: double.parse(no2Controller.text),
+                          //   so2: double.parse(so2Controller.text),
+                          //   co: double.parse(coController.text),
+                          //   o3: double.parse(o3Controller.text),
+                          //   temperature: double.parse(tempController.text),
+                          //   humidity: double.parse(humdintyController.text),
+                          //   wind: double.parse(windController.text),
+                          // );
                           Navigator.pop(context);
                         },
                         child: Text(

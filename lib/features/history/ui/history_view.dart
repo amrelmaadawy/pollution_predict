@@ -18,7 +18,7 @@ class HistoryView extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(10.0),
           child: predictions.isEmpty
-              ?  Center(
+              ? Center(
                   child: Text(
                     S.of(context).Nopredictionssavedyet,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

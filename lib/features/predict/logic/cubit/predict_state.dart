@@ -1,13 +1,12 @@
 part of 'predict_cubit.dart';
 
 @immutable
-abstract class PredictState 
-{
-   
+abstract class PredictState {
   List<Object> get props => [];
 }
 
 class PredictInitial extends PredictState {}
+
 class PredictionInitial extends PredictState {}
 
 class PredictionLoading extends PredictState {}
@@ -26,4 +25,16 @@ class PredictionError extends PredictState {
 
   @override
   List<Object> get props => [error];
+}
+
+class AQILoading extends PredictState {}
+
+class AQISuccess extends PredictState {
+  final double aqi;
+  AQISuccess(this.aqi);
+}
+
+class AQIFailure extends PredictState {
+  final String error;
+  AQIFailure(this.error);
 }

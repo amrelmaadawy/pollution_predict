@@ -30,12 +30,15 @@ class PredictionItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(formatDateTime(date,context), style: TextStyle(fontSize: 18)),
+                  Text(
+                    formatDateTime(date, context),
+                    style: TextStyle(fontSize: 18),
+                  ),
                   Row(
                     children: [
                       Text('Prediction:', style: TextStyle(fontSize: 18)),
                       const SizedBox(width: 5),
-                      getPredictionStatus(double.parse(prediction),context),
+                      getPredictionStatus(double.parse(prediction), context),
                       Text(
                         ' [$prediction]',
                         style: TextStyle(
