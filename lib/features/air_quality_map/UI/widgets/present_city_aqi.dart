@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/features/air_quality_map/UI/widgets/build_info_box.dart';
 import 'package:pollution/features/predict/logic/cubit/predict_cubit.dart';
 import 'package:pollution/generated/l10n.dart';
@@ -12,6 +13,8 @@ class PresentCityAQI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Positioned(
       bottom: 20,
       left: 20,
@@ -28,13 +31,13 @@ class PresentCityAQI extends StatelessWidget {
     
             if (aqi <= 50) {
               status = S.of(context).good;
-              color = Colors.green;
+              color =isDark?kDarkTextGreenColor:klightGreenTextColor ;
             } else if (aqi <= 100) {
               status = S.of(context).moderate;
-              color = Colors.orange;
+              color =isDark?kDarkYellowTextColor:Colors.amber[700]!;
             } else {
               status = S.of(context).unhealthy;
-              color = Colors.red;
+              color =isDark?kDarkRedTextColor:kRedTextColor;
             }
     
             return buildInfoBox(
@@ -42,7 +45,7 @@ class PresentCityAQI extends StatelessWidget {
               color,
             );
           } else if (state is AQIFailure) {
-            return buildInfoBox("${S.of(context).Error}: ${state.error}", Colors.red);
+            return buildInfoBox("${S.of(context).Error}: ${state.error}",isDark?kDarkRedTextColor:kRedTextColor);
           }
           return const SizedBox.shrink();
         },

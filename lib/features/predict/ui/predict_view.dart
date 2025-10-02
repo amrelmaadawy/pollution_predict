@@ -169,16 +169,16 @@ class _PredictViewState extends State<PredictView> {
                           if (!formKey.currentState!.validate()) {
                             return;
                           }
-                          // await context.read<PredictCubit>().getPrediction(
-                          //   pm10: double.parse(pm10Controller.text),
-                          //   no2: double.parse(no2Controller.text),
-                          //   so2: double.parse(so2Controller.text),
-                          //   co: double.parse(coController.text),
-                          //   o3: double.parse(o3Controller.text),
-                          //   temperature: double.parse(tempController.text),
-                          //   humidity: double.parse(humdintyController.text),
-                          //   wind: double.parse(windController.text),
-                          // );
+                          await context.read<PredictCubit>().getPrediction(
+                            pm10: double.parse(pm10Controller.text),
+                            no2: double.parse(no2Controller.text),
+                            so2: double.parse(so2Controller.text),
+                            co: double.parse(coController.text),
+                            o3: double.parse(o3Controller.text),
+                            temperature: double.parse(tempController.text),
+                            humidity: double.parse(humdintyController.text),
+                            wind: double.parse(windController.text),
+                          );
                           Navigator.pop(context);
                         },
                         child: Text(
