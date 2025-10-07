@@ -5,8 +5,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:pollution/core/cubit/pollution_cubit.dart';
 import 'package:pollution/core/model/prediction_model.dart';
-import 'package:pollution/features/home/ui/nav_bar_view.dart';
 import 'package:pollution/features/predict/logic/cubit/predict_cubit.dart';
+import 'package:pollution/features/splash_view/splash_view.dart';
 import 'package:pollution/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           debugShowCheckedModeBanner: false,
-          home: const NavBarView(),
+          home: const SplashView(),
         );
       },
     );

@@ -23,7 +23,7 @@ class PredictCubit extends Cubit<PredictState> {
     emit(PredictionLoading());
     try {
       final response = await dio.post(
-        "http://10.0.2.2:5000/predict", // للـ Emulator (Android).
+        "http://192.168.1.8:5000/predict", // للـ Emulator (Android).
         // لو موبايل حقيقي: استبدل 10.0.2.2 بالـ IP بتاع جهازك.
         data: {
           "pm10": pm10,
@@ -116,7 +116,7 @@ class PredictCubit extends Cubit<PredictState> {
      emit(AQILoading());
     try {
       final response = await dio.post(
-        "http://10.0.2.2:5000/predict", // للـ Emulator (Android).
+        "http://192.168.1.8:5000/predict", // للـ Emulator (Android).
         // لو موبايل حقيقي: استبدل 10.0.2.2 بالـ IP بتاع جهازك.
         data: {
           "pm10": toDouble(city["pm10"]),
