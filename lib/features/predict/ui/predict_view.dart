@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 import 'package:pollution/core/app_colors.dart';
+import 'package:pollution/core/model/prediction_model.dart';
 import 'package:pollution/features/predict/logic/cubit/predict_cubit.dart';
 import 'package:pollution/features/predict/ui/widgets/custom_text_form_field.dart';
+import 'package:pollution/features/predict/ui/widgets/prediction_card.dart';
 import 'package:pollution/generated/l10n.dart';
 
 class PredictView extends StatefulWidget {
@@ -31,7 +34,7 @@ class _PredictViewState extends State<PredictView> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
-        title: Text('', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text('Clean Air Prediction', style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
       ),
       body: Padding(
@@ -55,7 +58,7 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: pm10Controller,
-                        text: 'PM10',
+                        text: 'PM10 (µg/m³)',
                         labelText: 'PM10',
                         validator: (p1) {
                           if (p1!.isEmpty) {
@@ -68,7 +71,7 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: no2Controller,
-                        text: 'NO2',
+                        text: 'NO2 (ppb)',
                         labelText: 'NO2',
                         validator: (p1) {
                           if (p1!.isEmpty) {
@@ -81,7 +84,7 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: so2Controller,
-                        text: 'SO2',
+                        text: 'SO2 (ppb)',
                         labelText: 'SO2',
                         validator: (p1) {
                           if (p1!.isEmpty) {
@@ -94,7 +97,7 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: coController,
-                        text: 'CO',
+                        text: 'CO (ppm)',
                         labelText: 'CO',
                         validator: (p1) {
                           if (p1!.isEmpty) {
@@ -107,7 +110,7 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: o3Controller,
-                        text: 'O3',
+                        text: 'O3 (ppb)',
                         labelText: 'O3',
                         validator: (p1) {
                           if (p1!.isEmpty) {
@@ -120,7 +123,7 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: tempController,
-                        text: S.of(context).Temperature,
+                        text: '${S.of(context).Temperature} (°C)',
                         labelText: S.of(context).Temperature,
                         validator: (p1) {
                           if (p1!.isEmpty) {
@@ -134,7 +137,7 @@ class _PredictViewState extends State<PredictView> {
 
                       CustomTextFormField(
                         controller: windController,
-                        text: S.of(context).Wind,
+                        text: '${S.of(context).Wind} (m/s)',
                         labelText: S.of(context).Wind,
                         validator: (p1) {
                           if (p1!.isEmpty) {
@@ -147,7 +150,7 @@ class _PredictViewState extends State<PredictView> {
                       SizedBox(height: 10),
                       CustomTextFormField(
                         controller: humdintyController,
-                        text: S.of(context).Humidity,
+                        text:'${S.of(context).Humidity} (%)',
                         labelText: S.of(context).Humidity,
                         validator: (p1) {
                           if (p1!.isEmpty) {
@@ -169,17 +172,35 @@ class _PredictViewState extends State<PredictView> {
                           if (!formKey.currentState!.validate()) {
                             return;
                           }
-                          await context.read<PredictCubit>().getPrediction(
-                            pm10: double.parse(pm10Controller.text),
-                            no2: double.parse(no2Controller.text),
-                            so2: double.parse(so2Controller.text),
-                            co: double.parse(coController.text),
-                            o3: double.parse(o3Controller.text),
-                            temperature: double.parse(tempController.text),
-                            humidity: double.parse(humdintyController.text),
-                            wind: double.parse(windController.text),
-                          );
-                          Navigator.pop(context);
+                          await context
+                              .read<PredictCubit>()
+                              .getPrediction(
+                                pm10: double.parse(pm10Controller.text),
+                                no2: double.parse(no2Controller.text),
+                                so2: double.parse(so2Controller.text),
+                                co: double.parse(coController.text),
+                                o3: double.parse(o3Controller.text),
+                                temperature: double.parse(tempController.text),
+                                humidity: double.parse(humdintyController.text),
+                                wind: double.parse(windController.text),
+                              )
+                              .then((value) {
+                                final box = Hive.box<PredictionModel>(
+                                  'pollutionBox',
+                                );
+                                final prediction = double.parse(
+                                  box.getAt(box.length - 1)!.prediction,
+                                );
+                            
+                                showDialog(
+                                  context: context,
+                                  barrierDismissible:
+                                      false, // يمنع الإغلاق بالضغط خارج الدIALOG
+                                  builder: (context) {
+                                    return PredictionCard(prediction: prediction);
+                                  },
+                                );
+                              });
                         },
                         child: Text(
                           S.of(context).Predict,

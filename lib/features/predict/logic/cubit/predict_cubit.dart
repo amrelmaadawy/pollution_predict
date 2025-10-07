@@ -23,7 +23,7 @@ class PredictCubit extends Cubit<PredictState> {
     emit(PredictionLoading());
     try {
       final response = await dio.post(
-        "http://192.168.1.8:5000/predict", // للـ Emulator (Android).
+        "http://10.0.2.2:5000/predict", // للـ Emulator (Android).
         // لو موبايل حقيقي: استبدل 10.0.2.2 بالـ IP بتاع جهازك.
         data: {
           "pm10": pm10,
@@ -71,33 +71,6 @@ class PredictCubit extends Cubit<PredictState> {
     }
   }
 
-  // Future<void> predictCityAQI(Map<String, dynamic> cityData) async {
-  //   emit(AQILoading());
-  //   try {
-  //     final response = await dio.post(
-  //       "http://10.0.2.2:5000/predict",
-  //       data: {
-  //         "pm10": toDouble(cityData["pm10"]),
-  //         "no2": toDouble(cityData["no2"]),
-  //         "so2": toDouble(cityData["so2"]),
-  //         "co": toDouble(cityData["co"]),
-  //         "o3": toDouble(cityData["o3"]),
-  //         "temperature": toDouble(cityData["temperature"]),
-  //         "humidity": toDouble(cityData["humidity"]),
-  //         "wind": toDouble(cityData["wind"]),
-  //       },
-  //     );
-
-  //     final aqi = response.data["aqi"]?.toDouble() ?? 0.0;
-  //     print(aqi);
-  //     print('✅ successssssssssssssssssssssssssssssssssssssssss');
-  //     emit(AQISuccess(aqi));
-  //   } catch (e) {
-  //     print('❌ Erorrrrrrrrrrrrrrrrrrrrrrrrrrrrr');
-  //     print(e);
-  //     emit(AQIFailure(e.toString()));
-  //   }
-  // }
 
   double toDouble(dynamic value) {
     if (value is String) {
@@ -116,7 +89,7 @@ class PredictCubit extends Cubit<PredictState> {
      emit(AQILoading());
     try {
       final response = await dio.post(
-        "http://192.168.1.8:5000/predict", // للـ Emulator (Android).
+        "http://10.0.2.2:5000/predict", // للـ Emulator (Android).
         // لو موبايل حقيقي: استبدل 10.0.2.2 بالـ IP بتاع جهازك.
         data: {
           "pm10": toDouble(city["pm10"]),
