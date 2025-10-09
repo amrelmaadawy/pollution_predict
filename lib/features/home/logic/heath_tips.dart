@@ -1,15 +1,18 @@
-String getHealthTip(double prediction) {
+import 'package:flutter/material.dart';
+import 'package:pollution/generated/l10n.dart';
+
+String getHealthTip(double prediction,BuildContext context) {
   if (prediction <= 50) {
-    return "The air quality is good . Enjoy your outdoor activities.";
+    return S.of(context).TheairqualityisgoodEnjoyyouroutdooractivities;
   } else if (prediction <= 100) {
-    return "Air quality is moderate . Sensitive individuals should reduce prolonged outdoor exertion.";
+    return S.of(context).ModerateHealthTip;
   } else if (prediction <= 150) {
-    return " Unhealthy for sensitive groups. Consider limiting outdoor activities if you have asthma or heart conditions.";
+    return S.of(context).UnhealthyForSensitiveGroupsHealthTip;
   } else if (prediction <= 200) {
-    return " Unhealthy. Everyone should limit prolonged outdoor exertion.";
+    return S.of(context).UnhealthyHealthTip;
   } else if (prediction <= 300) {
-    return " Very Unhealthy. Stay indoors and avoid any outdoor activities.";
+    return S.of(context).VeryUnhealthyHealthTip;
   } else {
-    return " Hazardous. Remain indoors with windows closed and avoid all physical activities.";
+    return S.of(context).HazardousHealthTip;
   }
 }

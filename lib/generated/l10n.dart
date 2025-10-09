@@ -398,6 +398,121 @@ class S {
       args: [],
     );
   }
+
+  /// `Prediction`
+  String get Prediction {
+    return Intl.message('Prediction', name: 'Prediction', desc: '', args: []);
+  }
+
+  /// `Pollutions`
+  String get Pollutions {
+    return Intl.message('Pollutions', name: 'Pollutions', desc: '', args: []);
+  }
+
+  /// `Prediction Details`
+  String get PredictionDetails {
+    return Intl.message(
+      'Prediction Details',
+      name: 'PredictionDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overall Quality`
+  String get OverallQuality {
+    return Intl.message(
+      'Overall Quality',
+      name: 'OverallQuality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pollutants Level`
+  String get PollutantsLevel {
+    return Intl.message(
+      'Pollutants Level',
+      name: 'PollutantsLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get Close {
+    return Intl.message('Close', name: 'Close', desc: '', args: []);
+  }
+
+  /// `The air quality is good . Enjoy your outdoor activities.`
+  String get TheairqualityisgoodEnjoyyouroutdooractivities {
+    return Intl.message(
+      'The air quality is good . Enjoy your outdoor activities.',
+      name: 'TheairqualityisgoodEnjoyyouroutdooractivities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Air quality is moderate . Sensitive individuals should reduce prolonged outdoor exertion.`
+  String get ModerateHealthTip {
+    return Intl.message(
+      'Air quality is moderate . Sensitive individuals should reduce prolonged outdoor exertion.',
+      name: 'ModerateHealthTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Unhealthy for sensitive groups. Consider limiting outdoor activities if you have asthma or heart conditions.`
+  String get UnhealthyForSensitiveGroupsHealthTip {
+    return Intl.message(
+      ' Unhealthy for sensitive groups. Consider limiting outdoor activities if you have asthma or heart conditions.',
+      name: 'UnhealthyForSensitiveGroupsHealthTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unhealthy. Everyone should limit prolonged outdoor exertion.`
+  String get UnhealthyHealthTip {
+    return Intl.message(
+      'Unhealthy. Everyone should limit prolonged outdoor exertion.',
+      name: 'UnhealthyHealthTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Very Unhealthy. Stay indoors and avoid any outdoor activities.`
+  String get VeryUnhealthyHealthTip {
+    return Intl.message(
+      'Very Unhealthy. Stay indoors and avoid any outdoor activities.',
+      name: 'VeryUnhealthyHealthTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hazardous. Remain indoors with windows closed and avoid all physical activities.`
+  String get HazardousHealthTip {
+    return Intl.message(
+      'Hazardous. Remain indoors with windows closed and avoid all physical activities.',
+      name: 'HazardousHealthTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clean Air Prediction`
+  String get CleanAirPrediction {
+    return Intl.message(
+      'Clean Air Prediction',
+      name: 'CleanAirPrediction',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

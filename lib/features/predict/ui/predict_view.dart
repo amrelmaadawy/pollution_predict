@@ -34,7 +34,7 @@ class _PredictViewState extends State<PredictView> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
-        title: Text('Clean Air Prediction', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(S.of(context).CleanAirPrediction, style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
       ),
       body: Padding(

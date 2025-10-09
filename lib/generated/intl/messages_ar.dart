@@ -31,6 +31,16 @@ class MessageLookup extends MessageLookupByLibrary {
       "حالة جودة الهواء",
     ),
     "Alerts": MessageLookupByLibrary.simpleMessage("التنبيهات"),
+    "CalculatingAQI": MessageLookupByLibrary.simpleMessage(
+      "جارٍ حساب مؤشر جودة الهواء...",
+    ),
+    "Citynotfound": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على المدينة",
+    ),
+    "CleanAirPrediction": MessageLookupByLibrary.simpleMessage(
+      "تنبؤ بجودة الهواء",
+    ),
+    "Close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "CurrentAQI": MessageLookupByLibrary.simpleMessage(
       "مؤشر جودة الهواء الحالي",
     ),
@@ -39,7 +49,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "EnterAirQuailtyData": MessageLookupByLibrary.simpleMessage(
       "أدخل بيانات جودة الهواء",
     ),
+    "Error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "Hazardous": MessageLookupByLibrary.simpleMessage("خطير"),
+    "HazardousHealthTip": MessageLookupByLibrary.simpleMessage(
+      "الجو خطير جدًا. يُنصح بالبقاء في الداخل وإغلاق النوافذ وتجنب أي نشاط بدني.",
+    ),
     "HealthTips": MessageLookupByLibrary.simpleMessage("نصائح صحية"),
     "History": MessageLookupByLibrary.simpleMessage("السجل"),
     "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
@@ -47,13 +61,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "Language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "LastPrediction": MessageLookupByLibrary.simpleMessage("آخر توقع"),
     "Map": MessageLookupByLibrary.simpleMessage("الخريطة"),
+    "ModerateHealthTip": MessageLookupByLibrary.simpleMessage(
+      "جودة الهواء متوسطة. يُفضل أن يقلل الأشخاص الحساسون من الأنشطة الطويلة في الهواء الطلق.",
+    ),
     "Next7Days": MessageLookupByLibrary.simpleMessage("الأيام السبعة القادمة"),
     "NoPredictionYet": MessageLookupByLibrary.simpleMessage("لا يوجد توقع بعد"),
     "Nopredictionssavedyet": MessageLookupByLibrary.simpleMessage(
       "لا توجد توقعات محفوظة بعد.",
     ),
+    "OverallQuality": MessageLookupByLibrary.simpleMessage(
+      "جودة الهواء العامة",
+    ),
     "PM": MessageLookupByLibrary.simpleMessage("م"),
+    "PleaseEnterCityName": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل اسم المدينة",
+    ),
     "PollutantDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الملوثات"),
+    "PollutantsLevel": MessageLookupByLibrary.simpleMessage("مستويات الملوثات"),
+    "Pollutions": MessageLookupByLibrary.simpleMessage("الملوثات"),
     "Predict": MessageLookupByLibrary.simpleMessage("توقع"),
     "PredictAirQualityIndex": MessageLookupByLibrary.simpleMessage(
       "توقع مؤشر جودة الهواء",
@@ -61,20 +86,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "PredictedAQI": MessageLookupByLibrary.simpleMessage(
       "مؤشر جودة الهواء المتوقع",
     ),
+    "Prediction": MessageLookupByLibrary.simpleMessage("التنبؤ"),
+    "PredictionDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التنبؤ"),
     "Setting": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "Status": MessageLookupByLibrary.simpleMessage("الحالة"),
     "Stayindoorsandavoidoutdooractivities":
         MessageLookupByLibrary.simpleMessage(
           "ابقَ في الداخل وتجنب الأنشطة الخارجية",
         ),
     "Temperature": MessageLookupByLibrary.simpleMessage("درجة الحرارة"),
+    "TheairqualityisgoodEnjoyyouroutdooractivities":
+        MessageLookupByLibrary.simpleMessage(
+          "جودة الهواء جيدة. استمتع بأنشطتك الخارجية.",
+        ),
     "ThisFieldisRequired": MessageLookupByLibrary.simpleMessage(
       "هذا الحقل مطلوب",
     ),
     "Today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "UnhealthyForSensitiveGroupsHealthTip": MessageLookupByLibrary.simpleMessage(
+      "الجو غير صحي للفئات الحساسة. يُنصح بتقليل الأنشطة الخارجية، خاصةً لمن يعانون من الربو أو أمراض القلب.",
+    ),
+    "UnhealthyHealthTip": MessageLookupByLibrary.simpleMessage(
+      "الجو غير صحي. يُنصح الجميع بتقليل الأنشطة الطويلة في الهواء الطلق.",
+    ),
     "UnhealthySensitiveGroups": MessageLookupByLibrary.simpleMessage(
       "غير صحي (للمجموعات الحساسة)",
     ),
     "VeryUnhealthy": MessageLookupByLibrary.simpleMessage("غير صحي جدًا"),
+    "VeryUnhealthyHealthTip": MessageLookupByLibrary.simpleMessage(
+      "الجو غير صحي للغاية. يُفضل البقاء في الداخل وتجنب الأنشطة الخارجية.",
+    ),
     "ViewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "WeatherConditions": MessageLookupByLibrary.simpleMessage("الظروف الجوية"),
     "Wind": MessageLookupByLibrary.simpleMessage("الرياح"),
@@ -85,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "hourForecast": MessageLookupByLibrary.simpleMessage("توقعات ٢٤ ساعة"),
     "keyIndicator": MessageLookupByLibrary.simpleMessage("المؤشر الرئيسي"),
     "moderate": MessageLookupByLibrary.simpleMessage("متوسط"),
+    "searchCity": MessageLookupByLibrary.simpleMessage("ابحث عن مدينة"),
     "unhealthy": MessageLookupByLibrary.simpleMessage("غير صحي"),
   };
 }

@@ -20,7 +20,7 @@ class _NavBarViewState extends State<NavBarView> {
   late List<String> appBarsTitle = [
     S.of(context).airQuality,
     S.of(context).AirQualityMap,
-    'History',
+    S.of(context).History,
     S.of(context).Setting,
   ];
   List<Widget> pages = [

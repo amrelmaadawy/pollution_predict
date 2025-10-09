@@ -3,6 +3,7 @@ import 'package:pollution/core/app_colors.dart';
 import 'package:pollution/core/prediction_status.dart';
 import 'package:pollution/core/time_formatte.dart';
 import 'package:pollution/features/history/ui/widgets/pollutants_levels_item.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class PredictionDetailesView extends StatelessWidget {
   const PredictionDetailesView({
@@ -43,7 +44,7 @@ class PredictionDetailesView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Prediction Details',
+                      S.of(context).PredictionDetails,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -65,7 +66,7 @@ class PredictionDetailesView extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'Overall Quality',
+                  S.of(context).OverallQuality,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -74,19 +75,12 @@ class PredictionDetailesView extends StatelessWidget {
                 ),
                 Spacer(),
                 getPredictionStatus(double.parse(prediction), context),
-                // Text(
-                //   '[$prediction]',
-                //   style: TextStyle(
-                //     fontSize: 16,
-                //     fontWeight: FontWeight.bold,
-                //     color: klightGreenTextColor,
-                //   ),
-                // ),
+              
               ],
             ),
             Divider(),
             Text(
-              'Pollutants Levels',
+              S.of(context).PollutantsLevel,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
@@ -120,7 +114,7 @@ class PredictionDetailesView extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  'Close',
+                  S.of(context).Close,
                   style: TextStyle(
                     color: isDark ? kDarkTextGreenColor : klightGreenTextColor,
                     fontWeight: FontWeight.bold,

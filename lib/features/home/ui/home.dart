@@ -126,6 +126,7 @@ class Home extends StatelessWidget {
                             Text(
                               getHealthTip(
                                 double.parse(lastPrediction.prediction),
+                                context
                               ),
                               style: const TextStyle(fontSize: 17),
                               softWrap: true,

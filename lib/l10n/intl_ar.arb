@@ -90,6 +90,61 @@
 "PredictAirQualityIndex":"توقع مؤشر جودة الهواء",
 "@PredictAirQualityIndex":{},
 "Predict":"توقع",
-"@Predict":{}
+"@Predict":{},
+"searchCity": "ابحث عن مدينة",
+"@searchCity": {},
 
+"CalculatingAQI": "جارٍ حساب مؤشر جودة الهواء...",
+"@CalculatingAQI": {},
+
+"Status": "الحالة",
+"@Status": {},
+
+"Error": "خطأ",
+"@Error": {},
+
+"PleaseEnterCityName": "من فضلك أدخل اسم المدينة",
+"@PleaseEnterCityName": {},
+
+"Citynotfound": "لم يتم العثور على المدينة",
+"@Citynotfound": {},
+
+"Prediction": "التنبؤ",
+"@Prediction": {},
+
+"Pollutions": "الملوثات",
+"@Pollutions": {},
+
+"PredictionDetails": "تفاصيل التنبؤ",
+"@PredictionDetails": {},
+
+"OverallQuality": "جودة الهواء العامة",
+"@OverallQuality": {},
+
+"PollutantsLevel": "مستويات الملوثات",
+"@PollutantsLevel": {},
+
+"Close": "إغلاق",
+"@Close": {},
+
+"TheairqualityisgoodEnjoyyouroutdooractivities": "جودة الهواء جيدة. استمتع بأنشطتك الخارجية.",
+"@TheairqualityisgoodEnjoyyouroutdooractivities": {},
+
+"ModerateHealthTip": "جودة الهواء متوسطة. يُفضل أن يقلل الأشخاص الحساسون من الأنشطة الطويلة في الهواء الطلق.",
+"@ModerateHealthTip": {},
+
+"UnhealthyForSensitiveGroupsHealthTip": "الجو غير صحي للفئات الحساسة. يُنصح بتقليل الأنشطة الخارجية، خاصةً لمن يعانون من الربو أو أمراض القلب.",
+"@UnhealthyForSensitiveGroupsHealthTip": {},
+
+"UnhealthyHealthTip": "الجو غير صحي. يُنصح الجميع بتقليل الأنشطة الطويلة في الهواء الطلق.",
+"@UnhealthyHealthTip": {},
+
+"VeryUnhealthyHealthTip": "الجو غير صحي للغاية. يُفضل البقاء في الداخل وتجنب الأنشطة الخارجية.",
+"@VeryUnhealthyHealthTip": {},
+
+"HazardousHealthTip": "الجو خطير جدًا. يُنصح بالبقاء في الداخل وإغلاق النوافذ وتجنب أي نشاط بدني.",
+"@HazardousHealthTip": {},
+
+"CleanAirPrediction": "تنبؤ بجودة الهواء",
+"@CleanAirPrediction": {}
 }

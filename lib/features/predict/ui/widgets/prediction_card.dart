@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pollution/features/predict/logic/methods/prediction_status.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class PredictionCard extends StatelessWidget {
   const PredictionCard({super.key, required this.prediction});
@@ -32,7 +33,7 @@ class PredictionCard extends StatelessWidget {
             Icon(Icons.eco_rounded, color: getColor(), size: 60),
             const SizedBox(height: 16),
             Text(
-              "Predicted AQI",
+              S.of(context).PredictedAQI,
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -73,8 +74,8 @@ class PredictionCard extends StatelessWidget {
                   vertical: 12,
                 ),
               ),
-              child: const Text(
-                "Close",
+              child:  Text(
+                S.of(context).Close,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.white,

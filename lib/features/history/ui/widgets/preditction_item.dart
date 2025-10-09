@@ -4,6 +4,7 @@ import 'package:pollution/core/hive/hive_service.dart';
 import 'package:pollution/core/prediction_status.dart';
 import 'package:pollution/core/time_formatte.dart';
 import 'package:pollution/features/history/ui/widgets/prediction_detailes_view.dart';
+import 'package:pollution/generated/l10n.dart';
 
 class PredictionItem extends StatelessWidget {
   const PredictionItem({
@@ -36,7 +37,7 @@ class PredictionItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text('Prediction:', style: TextStyle(fontSize: 18)),
+                      Text('${S.of(context).Prediction}:', style: TextStyle(fontSize: 18)),
                       const SizedBox(width: 5),
                       getPredictionStatus(double.parse(prediction), context),
                       Text(
@@ -50,7 +51,7 @@ class PredictionItem extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'Pollutants: PM10:${pollution['pm10']}, NO2:${pollution['no2']}, SO2:${pollution['so2']}, CO:${pollution['co']}, O3:${pollution['o3']}',
+                    '${S.of(context).Pollutions}: PM10:${pollution['pm10']}, NO2:${pollution['no2']}, SO2:${pollution['so2']}, CO:${pollution['co']}, O3:${pollution['o3']}',
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: 15,

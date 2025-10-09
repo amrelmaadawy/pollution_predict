@@ -35,6 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Calculating AQI...",
     ),
     "Citynotfound": MessageLookupByLibrary.simpleMessage("City not found"),
+    "CleanAirPrediction": MessageLookupByLibrary.simpleMessage(
+      "Clean Air Prediction",
+    ),
+    "Close": MessageLookupByLibrary.simpleMessage("Close"),
     "CurrentAQI": MessageLookupByLibrary.simpleMessage("Current AQI"),
     "DarkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "Dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
@@ -43,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Error": MessageLookupByLibrary.simpleMessage("Error"),
     "Hazardous": MessageLookupByLibrary.simpleMessage("Hazardous"),
+    "HazardousHealthTip": MessageLookupByLibrary.simpleMessage(
+      "Hazardous. Remain indoors with windows closed and avoid all physical activities.",
+    ),
     "HealthTips": MessageLookupByLibrary.simpleMessage("Health Tips"),
     "History": MessageLookupByLibrary.simpleMessage("History"),
     "Home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -50,6 +57,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "Language": MessageLookupByLibrary.simpleMessage("Language"),
     "LastPrediction": MessageLookupByLibrary.simpleMessage("Last Prediction"),
     "Map": MessageLookupByLibrary.simpleMessage("Map"),
+    "ModerateHealthTip": MessageLookupByLibrary.simpleMessage(
+      "Air quality is moderate . Sensitive individuals should reduce prolonged outdoor exertion.",
+    ),
     "Next7Days": MessageLookupByLibrary.simpleMessage("Next 7 Days"),
     "NoPredictionYet": MessageLookupByLibrary.simpleMessage(
       "No Prediction Yet",
@@ -57,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Nopredictionssavedyet": MessageLookupByLibrary.simpleMessage(
       "No predictions saved yet.",
     ),
+    "OverallQuality": MessageLookupByLibrary.simpleMessage("Overall Quality"),
     "PM": MessageLookupByLibrary.simpleMessage("PM"),
     "PleaseEnterCityName": MessageLookupByLibrary.simpleMessage(
       "Please Enter City Name",
@@ -64,11 +75,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "PollutantDetails": MessageLookupByLibrary.simpleMessage(
       "Pollutant Details",
     ),
+    "PollutantsLevel": MessageLookupByLibrary.simpleMessage("Pollutants Level"),
+    "Pollutions": MessageLookupByLibrary.simpleMessage("Pollutions"),
     "Predict": MessageLookupByLibrary.simpleMessage("Predict"),
     "PredictAirQualityIndex": MessageLookupByLibrary.simpleMessage(
       "Predict Air Quality Index",
     ),
     "PredictedAQI": MessageLookupByLibrary.simpleMessage("Predicted AQI"),
+    "Prediction": MessageLookupByLibrary.simpleMessage("Prediction"),
+    "PredictionDetails": MessageLookupByLibrary.simpleMessage(
+      "Prediction Details",
+    ),
     "Setting": MessageLookupByLibrary.simpleMessage("Settings"),
     "Status": MessageLookupByLibrary.simpleMessage("Status"),
     "Stayindoorsandavoidoutdooractivities":
@@ -76,14 +93,27 @@ class MessageLookup extends MessageLookupByLibrary {
           "Stay indoors and avoid outdoor activities",
         ),
     "Temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
+    "TheairqualityisgoodEnjoyyouroutdooractivities":
+        MessageLookupByLibrary.simpleMessage(
+          "The air quality is good . Enjoy your outdoor activities.",
+        ),
     "ThisFieldisRequired": MessageLookupByLibrary.simpleMessage(
       "This Field is Required",
     ),
     "Today": MessageLookupByLibrary.simpleMessage("Today"),
+    "UnhealthyForSensitiveGroupsHealthTip": MessageLookupByLibrary.simpleMessage(
+      " Unhealthy for sensitive groups. Consider limiting outdoor activities if you have asthma or heart conditions.",
+    ),
+    "UnhealthyHealthTip": MessageLookupByLibrary.simpleMessage(
+      "Unhealthy. Everyone should limit prolonged outdoor exertion.",
+    ),
     "UnhealthySensitiveGroups": MessageLookupByLibrary.simpleMessage(
       "Unhealthy (Sensitive Groups)",
     ),
     "VeryUnhealthy": MessageLookupByLibrary.simpleMessage("Very Unhealthy"),
+    "VeryUnhealthyHealthTip": MessageLookupByLibrary.simpleMessage(
+      "Very Unhealthy. Stay indoors and avoid any outdoor activities.",
+    ),
     "ViewAll": MessageLookupByLibrary.simpleMessage("View All"),
     "WeatherConditions": MessageLookupByLibrary.simpleMessage(
       "Weather Conditions",
