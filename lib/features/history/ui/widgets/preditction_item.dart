@@ -37,7 +37,10 @@ class PredictionItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text('${S.of(context).Prediction}:', style: TextStyle(fontSize: 18)),
+                      Text(
+                        '${S.of(context).Prediction}:',
+                        style: TextStyle(fontSize: 18),
+                      ),
                       const SizedBox(width: 5),
                       getPredictionStatus(double.parse(prediction), context),
                       Text(
@@ -45,7 +48,7 @@ class PredictionItem extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: isDark ? kDarkSubTextColor : kSubTextColor,
-                          fontSize: 18,
+                          fontSize: 16,
                         ),
                       ),
                     ],

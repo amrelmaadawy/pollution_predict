@@ -9,7 +9,7 @@ Widget getPredictionStatus(double prediction, BuildContext context) {
     return Text(
       S.of(context).good,
       style: TextStyle(
-        fontSize: 20,
+        fontSize: 19,
         fontWeight: FontWeight.bold,
         color: isDark ? kDarkTextGreenColor : klightGreenTextColor,
       ),
@@ -18,7 +18,7 @@ Widget getPredictionStatus(double prediction, BuildContext context) {
     return Text(
       S.of(context).moderate,
       style: TextStyle(
-        fontSize: 20,
+        fontSize: 19,
         fontWeight: FontWeight.bold,
         color: isDark ? kDarkYellowTextColor : kYellowTextColor,
       ),
